@@ -15,6 +15,8 @@
 | [ChatGPT-skill.md](./ChatGPT-skill.md) | 跨 AI 同步技能文件 |
 | [AI_AGENT_SYNC.md](./AI_AGENT_SYNC.md) | 最新工作狀態同步 |
 | [SKY-SHOPPING-AI-SPOKESPERSON.md](./SKY-SHOPPING-AI-SPOKESPERSON.md) | SKY Shopping AMY 代言人完整規格 |
+| [SKY-SHOPPING-AMY-MODULE-SYSTEM.md](./SKY-SHOPPING-AMY-MODULE-SYSTEM.md) | AMY 模組系統規格 |
+| [AMY-VIDEO-GENERATION-LESSONS.md](./AMY-VIDEO-GENERATION-LESSONS.md) | ⚠️ 失敗經驗記錄，接手必讀 |
 | [WINDOWS_SADTALKER_SETUP.md](./WINDOWS_SADTALKER_SETUP.md) | Windows SadTalker 安裝指南 |
 
 ---
