@@ -6,12 +6,22 @@
 
 ---
 
-## ⚠️ 接手前強制閱讀順序
+## ⚡ Mandatory Startup Rule — 所有 Agent 必須遵守
 
-1. 本文件（`AI_AGENT_MASTER.md`）
-2. `CORE-RULES.md`
-3. `ChatGPT-skill.md`
-4. 對應專案的 `AGENT-HANDOFF.md`
+```
+Before doing ANYTHING:
+
+1. Read AI-AGENT-MASTER.md        ← 你正在讀這份
+2. Read CORE-RULES.md             ← 所有專案核心規則
+3. Read ChatGPT-skill.md          ← 跨 AI 同步狀態
+4. Read SKY-SHOPPING-AI-SPOKESPERSON.md ← SKY Shopping AMY 規格
+5. Read 對應專案的 AGENT-HANDOFF.md
+
+Do NOT ask repeated onboarding questions.
+Do NOT overwrite locked content.
+Do NOT modify without user authorization.
+Preserve stability. Follow locked standards.
+```
 
 ---
 
