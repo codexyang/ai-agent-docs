@@ -1,4 +1,19 @@
-# Pegasustour Core Rules
+# Pegasustour + SKY Shopping Core Rules
+
+## ⛔ LOCKED_SCRIPT_MODE = TRUE（鐵規）
+
+```
+1. 所有影片必須讀 approved_script.txt
+2. 禁止 AI rewrite
+3. 禁止 build_script()
+4. 禁止根據商品推測
+5. 禁止自動生成銷售文案
+6. Script mismatch > 1字 即退件
+```
+適用：Claude Code / Codex / ChatGPT / 未來所有 AI  
+詳見 `LOCKED_SCRIPT_MODE.md`
+
+---
 
 This desktop copy mirrors the project root `pegasus-booking/CORE-RULES.md`.
 
