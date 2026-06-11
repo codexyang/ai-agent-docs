@@ -20,10 +20,18 @@ This desktop copy mirrors the project root `pegasus-booking/CORE-RULES.md`.
 - 本地路徑：`/Users/yangkean/pegasus-booking`
 - 🔒 禁止修改：`app/layout.tsx`（全站崩潰風險）
 
-## AMY AI 銷售大使（新增 2026-06-10）
-- SadTalker 已安裝：`~/Desktop/SadTalker`，Conda 環境：`sadtalker`
-- AMY 照片：`~/Desktop/AI 機器人_Amy/S__11845643.jpg`
-- 詳細流程見：`AI_AGENT_MASTER.md` 和 `project_amy_sadtalker.md`
+## AMY AI 銷售助理（更新 2026-06-11）
+- 本地播放器：`C:\Users\USER\Desktop\AI 助理\amy-player\`（localhost:8899）
+- 核准稿資料夾：`amy-player\approved-scripts\{id}.txt`
+- SadTalker 已廢棄（GT 750M 硬體限制，4-5小時/段，不可用）
+- 詳細規範：`AMY-CONTENT-GOVERNANCE.md`（**必讀**）
+
+## 🚨 AMY 內容治理（法律層級，2026-06-11 生效）
+**AI 禁止自創台詞。只能逐字朗讀 approved-scripts/{id}.txt 正式核准稿。**
+- 無核准稿 → AMY 只說「請洽客服了解更多詳情」
+- build_script() 已廢止，不得重新啟用
+- 生成前必須 Script Diff（AI稿 vs 正式稿，一字一句比對）
+- 詳見：`AMY-CONTENT-GOVERNANCE.md`
 
 ## Required Reading
 Before making changes, read these project-root files:
