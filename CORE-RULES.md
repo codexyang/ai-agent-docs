@@ -1,5 +1,7 @@
 # Pegasustour + SKY Shopping Core Rules
 
+> **2026-06-12 整合更新：** 最新整體入口為 `CURRENT_STATUS.md`。若本文件與 `CURRENT_STATUS.md`、`LOCKED_SCRIPT_MODE.md`、`AMY-CONTENT-GOVERNANCE.md` 衝突，以後三者較新的鎖定規則為準。
+
 ## ⛔ LOCKED_SCRIPT_MODE = TRUE（鐵規）
 
 ```
@@ -51,15 +53,19 @@ This desktop copy mirrors the project root `pegasus-booking/CORE-RULES.md`.
 ## Required Reading
 Before making changes, read these project-root files:
 
-1. `AI_AGENT_MASTER.md`（**最優先**，跨專案主控）
-2. `CORE-RULES.md`
-3. `AGENT-HANDOFF.md`
-4. `ChatGPT-skill.md`
+1. `CURRENT_STATUS.md`（**最新整合入口**）
+2. `LOCKED_SCRIPT_MODE.md`（AMY 最高優先鐵規）
+3. `AMY-CONTENT-GOVERNANCE.md`
+4. `AI_AGENT_MASTER.md`
+5. `CORE-RULES.md`
+6. `AGENT-HANDOFF.md`
+7. `ChatGPT-skill.md`
 
 ## Fixed Opening Instruction
 
 ```text
 Before making any changes, read CORE-RULES.md, AGENT-HANDOFF.md, and ChatGPT-skill.md.
+Also read CURRENT_STATUS.md, LOCKED_SCRIPT_MODE.md, and AMY-CONTENT-GOVERNANCE.md.
 Follow Pegasus-booking V1.53 多語言服務版本 rules.
 Do not modify unrelated files.
 Do not rewrite architecture.

@@ -4,15 +4,20 @@
 **狀態：** 鎖定 v1.1 — 禁止未經授權修改
 **適用：** Claude Code / Codex / ChatGPT / 所有 AI Agent
 
+> **2026-06-12 整合註記：** AMY 品牌名稱與開場白仍鎖定；但任何語音/影片生成與商品介紹內容，必須先遵守 `LOCKED_SCRIPT_MODE.md` 與 `AMY-CONTENT-GOVERNANCE.md`。下方 SadTalker 指令保留為歷史技術紀錄，不得繞過核准稿規則。
+
 ---
 
 ## ⚠️ Mandatory Startup Rule
 
 Before doing anything related to SKY Shopping content:
 
-1. Read `AI-AGENT-MASTER.md`
-2. Read `CORE-RULES.md`
-3. Read this file (`SKY-SHOPPING-AI-SPOKESPERSON.md`)
+1. Read `CURRENT_STATUS.md`
+2. Read `LOCKED_SCRIPT_MODE.md`
+3. Read `AMY-CONTENT-GOVERNANCE.md`
+4. Read `AI_AGENT_MASTER.md`
+5. Read `CORE-RULES.md`
+6. Read this file (`SKY-SHOPPING-AI-SPOKESPERSON.md`)
 
 Do not ask repeated onboarding questions unless information is missing.
 Preserve stability. Do not overwrite existing workflows. Follow locked standards.
@@ -109,7 +114,9 @@ edge-tts --voice zh-TW-HsiaoChenNeural --text "文字內容" --write-media ~/Des
 - **外觀：** 白色西裝、珍珠耳環、專業親切
 - **定位：** 中高端消費族群，精品商城代言人
 
-### 影片生成指令（Mac）
+### 影片生成指令（Mac / Legacy）
+
+> 保留為歷史技術紀錄。正式生成前必須讀取核准稿並執行 Script Diff。
 ```bash
 cd ~/Desktop/SadTalker
 conda activate sadtalker
@@ -178,7 +185,7 @@ caffeinate -d python inference.py \
 
 ## 7. 相關文件連結
 
-- 主控文件：[AI-AGENT-MASTER.md](./AI-AGENT-MASTER.md)
+- 主控文件：[AI_AGENT_MASTER.md](./AI_AGENT_MASTER.md)
 - 核心規則：[CORE-RULES.md](./CORE-RULES.md)
 - Windows 安裝：[WINDOWS_SADTALKER_SETUP.md](./WINDOWS_SADTALKER_SETUP.md)
 - SKY Shopping 專案：https://sky-shopping-v1.vercel.app

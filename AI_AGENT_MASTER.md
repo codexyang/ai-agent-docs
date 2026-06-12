@@ -1,6 +1,8 @@
 # AI Agent 主控文件 — 所有 AI 接手必讀
 
-**最後更新：** 2026-06-10
+> **2026-06-12 整合更新：** 開工前先讀 `CURRENT_STATUS.md`。若本文件中任何舊資訊與 `CURRENT_STATUS.md`、`LOCKED_SCRIPT_MODE.md`、`AMY-CONTENT-GOVERNANCE.md` 或 `CORE-RULES.md` 衝突，以較新的鎖定規則為準。
+
+**最後更新：** 2026-06-12
 **負責人：** Yangkean（Pegasustour VIP 負責人）
 **適用：** Claude Code / ChatGPT / Codex / 任何 AI Agent
 
@@ -11,11 +13,13 @@
 ```
 Before doing ANYTHING:
 
-1. Read AI-AGENT-MASTER.md        ← 你正在讀這份
-2. Read CORE-RULES.md             ← 所有專案核心規則
-3. Read ChatGPT-skill.md          ← 跨 AI 同步狀態
-4. Read SKY-SHOPPING-AI-SPOKESPERSON.md ← SKY Shopping AMY 規格
-5. Read 對應專案的 AGENT-HANDOFF.md
+1. Read CURRENT_STATUS.md          ← 最新整合入口
+2. Read LOCKED_SCRIPT_MODE.md      ← AMY 最高優先鐵規
+3. Read AMY-CONTENT-GOVERNANCE.md  ← AMY 法律層級內容治理
+4. Read AI_AGENT_MASTER.md         ← 你正在讀這份
+5. Read CORE-RULES.md              ← 所有專案核心規則
+6. Read ChatGPT-skill.md           ← 跨 AI 同步狀態
+7. Read 對應專案的 AGENT-HANDOFF.md
 
 Do NOT ask repeated onboarding questions.
 Do NOT overwrite locked content.
@@ -40,9 +44,9 @@ Preserve stability. Follow locked standards.
 
 ## 所有進行中專案總覽
 
-### 1. 🛫 Pegasustour Booking V1.53（機場接送平台）
-- **狀態：** 穩定鎖定（2026-06-07）
-- **網址：** https://pegasustour-v1-5.vercel.app
+### 1. Pegasustour Booking / V2.0 整合
+- **狀態：** V1.53 多語言穩定歷史 + V2.0 兩站整合記錄並存；最新判定見 `CURRENT_STATUS.md`
+- **網址記錄：** https://pegasustour-v1-5.vercel.app / https://pegasustour-vip.vercel.app
 - **本地路徑：** `/Users/yangkean/Desktop/AI 助理/pegasus-booking`
 - **穩定 commit：** `64a8f6f`
 - **技術棧：** Next.js / TypeScript / Supabase / Prisma / Tailwind
@@ -59,17 +63,18 @@ Preserve stability. Follow locked standards.
 - **允許微調：** UI 調整、文字修改、bug 修復
 - **待辦：** 商品詳情頁、金流接入、Email/LINE 通知、V2.0 API 互通
 
-### 3. 🤖 AMY AI 銷售大使（SKY Shopping 宣傳影片）
-- **狀態：** SadTalker 安裝完成，正式影片待生成（2026-06-10）
-- **AMY 照片：** `~/Desktop/AI 機器人_Amy/S__11845643.jpg`
-- **SadTalker 路徑：** `~/Desktop/SadTalker`
-- **Conda 環境：** `sadtalker`（Python 3.10）
-- **影片輸出：** `~/Desktop/SadTalker/results/`
-- **詳細說明：** 見 `project_amy_sadtalker.md`
+### 3. AMY AI 銷售大使（SKY Shopping）
+- **狀態：** 2026-06-11 起進入 `LOCKED_SCRIPT_MODE = TRUE`
+- **最高規則：** 只能逐字朗讀 `amy-player/approved-scripts/{id}.txt`
+- **禁止：** AI 自創台詞、rewrite、`build_script()`、根據商品推測功效或銷售文案
+- **無核准稿：** 只能說「請洽客服了解更多詳情」
+- **舊 SadTalker / 模板文件：** 視為 legacy planning，不得覆蓋內容治理鐵規
 
 ---
 
-## AMY 影片生成完整流程（每次使用）
+## AMY 影片生成歷史流程（Legacy）
+
+> 下列 SadTalker 流程保留為歷史紀錄。任何 AMY 語音/影片生成前，必須先通過 `LOCKED_SCRIPT_MODE.md` 與 `AMY-CONTENT-GOVERNANCE.md` 的核准稿逐字比對規則。
 
 ```bash
 # 第一步：啟動環境
@@ -137,6 +142,7 @@ caffeinate -d python inference.py \
 ## 跨 AI 同步規則
 
 ### 每次工作結束前必須更新：
+0. `CURRENT_STATUS.md`（若整體狀態、衝突判定、repo 分工有變）
 1. 本文件 `AI_AGENT_MASTER.md`
 2. `ChatGPT-skill.md`（ChatGPT 讀這個）
 3. `CORE-RULES.md`（專案規則）
@@ -167,8 +173,7 @@ caffeinate -d python inference.py \
 
 ## 下次接手 Agent 待辦事項
 
-- [ ] 確認 SadTalker 目前影片是否生成完成（`~/Desktop/SadTalker/results/`）
-- [ ] 用最新文字稿生成 AMY 正式宣傳影片
-- [ ] 測試 `--enhancer gfpgan` 提升臉部畫質
+- [ ] 確認 AMY `approved-scripts/{id}.txt` 是否存在且已核准
+- [ ] 任何 AMY 音訊/影片生成前執行 Script Diff
 - [ ] SKY Shopping 商品詳情頁開發
 - [ ] 金流接入評估（ECPay / LINE Pay）

@@ -1,6 +1,15 @@
 # AI Agent Sync
 
-Last updated: 2026-06-08 05:00 CST
+Last updated: 2026-06-12
+
+## 2026-06-12 文件整合狀態（最新優先）
+
+- 新增 `CURRENT_STATUS.md` 作為所有 AI Agent 的最新整合入口。
+- 若舊文件仍提到 SadTalker、AMY-B 模板自動套稿、產品資料自動生成介紹，以 `LOCKED_SCRIPT_MODE.md` 與 `AMY-CONTENT-GOVERNANCE.md` 覆蓋。
+- AMY 目前最高規則：只能逐字朗讀 `amy-player/approved-scripts/{id}.txt`；禁止 AI rewrite、`build_script()`、商品推測、銷售文案自動生成。
+- README 入口已從錯誤的 `AI-AGENT-MASTER.md` 修正為 `CURRENT_STATUS.md` / `AI_AGENT_MASTER.md`。
+- `pegasus-booking/` 是獨立 Git repo，對應 `codexyang/pegasustour-v1.5`，不得作為外層 `ai-agent-docs` 的普通資料夾提交。
+- `ai-agent-docs` 用於規格、交接、治理與同步文件；程式修改應進入各自專案 repo 操作。
 
 ## 🆕 SKY Shopping v1.0 上線鎖定（2026-06-08）
 

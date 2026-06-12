@@ -1,5 +1,26 @@
 # ChatGPT-skill
 
+## 2026-06-12 最新整合規則（優先讀）
+
+先讀：`/Users/yangkean/Desktop/AI 助理/CURRENT_STATUS.md`。
+
+若本文件舊段落與以下文件衝突，以以下順序為準：
+
+1. `CURRENT_STATUS.md`
+2. `LOCKED_SCRIPT_MODE.md`
+3. `AMY-CONTENT-GOVERNANCE.md`
+4. `CORE-RULES.md`
+
+AMY 目前已進入 `LOCKED_SCRIPT_MODE = TRUE`：
+
+- 只能逐字朗讀 `amy-player/approved-scripts/{id}.txt`
+- 禁止 AI rewrite / 潤稿 / 摘要 / 擴寫
+- 禁止 `build_script()` 或任何自動生成商品介紹稿
+- 無核准稿時只能說「請洽客服了解更多詳情」
+- 舊的 SadTalker、AMY-B 模板、依商品資料生成介紹內容，只能當歷史紀錄，不得作為目前實作依據
+
+---
+
 ## ⚠️ 所有 AI 接手必讀主控文件
 **`/Users/yangkean/Desktop/AI 助理/AI_AGENT_MASTER.md`**
 包含：所有專案狀態、AMY 影片生成流程、電腦環境、跨 AI 同步規則。每次工作結束必須更新。
