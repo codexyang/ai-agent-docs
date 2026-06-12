@@ -79,14 +79,15 @@ sky-shopping-prod
 └── Production：正式客戶、正式訂單、正式金流
 
 sky-shopping-lab
-├── Development：Claude / Codex / AI 工作區
+├── Backup：外部 pg_dump 或短期 mirror
 ├── Staging：付款 / 通知 / 訂單測試
-└── Backup：外部 pg_dump 或短期 mirror
+└── Development：Claude / Codex / AI 工作區
 ```
 
 硬規則：
 
 - Production 既有 project 不動，不重設，不拿來測試。
+- Backup 先建，確認可還原後再建 Staging / Development。
 - Claude / Codex / AI 預設只能連 `Development`。
 - 測試付款、訂單、Email/LINE 通知只能連 `Staging`，金流必須 sandbox。
 - Backup 不接前台流量，只做每日備份或復原用途。
