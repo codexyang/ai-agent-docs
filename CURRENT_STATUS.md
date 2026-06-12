@@ -70,6 +70,29 @@ amy-player/approved-scripts/{id}.txt
 - 鎖定內容：AMY 開場白 v1.1、品牌名稱、內容治理規則。
 - 待辦方向：商品詳情頁、商品 CRUD、金流、Email/LINE 通知、與旅遊/訂車流程的 API 加購互通。
 
+### SKY Shopping 資料庫防火牆（2026-06-13）
+
+目前先採用 2 Supabase Project / 4 層邏輯防火牆：
+
+```text
+sky-shopping-prod
+└── Production：正式客戶、正式訂單、正式金流
+
+sky-shopping-lab
+├── Development：Claude / Codex / AI 工作區
+├── Staging：付款 / 通知 / 訂單測試
+└── Backup：外部 pg_dump 或短期 mirror
+```
+
+硬規則：
+
+- Production 既有 project 不動，不重設，不拿來測試。
+- Claude / Codex / AI 預設只能連 `Development`。
+- 測試付款、訂單、Email/LINE 通知只能連 `Staging`，金流必須 sandbox。
+- Backup 不接前台流量，只做每日備份或復原用途。
+- 大量商品圖片、AI 語音、數字人影片應放 Object Storage / CDN，不放 PostgreSQL。
+- 詳細規格在 SKY Shopping repo：`/Users/yangkean/sky-shopping-v1/DATABASE_FIREWALL.md`。
+
 ---
 
 ## Pegasustour 現況
