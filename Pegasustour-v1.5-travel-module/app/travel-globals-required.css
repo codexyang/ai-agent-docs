@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+  display: inline-flex;
+  width: max-content;
+  min-width: 200%;
+  will-change: transform;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+}
+
+.carousel-row {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #d97706 #fef3c7;
+}
+
+.carousel-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-row::-webkit-scrollbar-track {
+  background: #fef3c7;
+  border-radius: 999px;
+}
+
+.carousel-row::-webkit-scrollbar-thumb {
+  background: #d97706;
+  border-radius: 999px;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  display: grid;
+  height: 42px;
+  width: 42px;
+  transform: translateY(-50%);
+  place-items: center;
+  border-width: 1px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 18%);
+  font-size: 30px;
+  line-height: 1;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.06);
+}
+
+@media (max-width: 640px) {
+  .carousel-arrow {
+    height: 34px;
+    width: 34px;
+    font-size: 24px;
+  }
+}
+
+.animate-marquee {
+  animation: marquee 72s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marquee 96s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 88s linear infinite;
+}
+
+@keyframes marquee-reverse {
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
