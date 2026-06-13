@@ -17,6 +17,8 @@ Last updated: 2026-06-14
 - Pegasustour GitHub PR 建立網址：`https://github.com/codexyang/pegasustour-v1.5/pull/new/codex/v2.5-logistics-service-link`
 - 物流系統接手必讀：`/Users/yangkean/Documents/物流系統建置/AGENT_HANDOFF_V2.5.md`
 - 不可亂改：booking/payment/email/LINE/Excel、Pegasustour `app/layout.tsx`、物流 `failed -> reviewing -> ready_to_ship`、外部表單公開入口。
+- 2026-06-14 重新確認：Pegasustour production HTML 已包含 `https://sky-logistics-system.vercel.app/external`，表示「更多服務 -> 物流服務」已正確連到物流外部委託表單。
+- 2026-06-14 重新確認：`https://sky-logistics-system.vercel.app`、`https://sky-logistics-system.vercel.app/external`、`https://pegasustour-v1-5.vercel.app` 皆回傳 HTTP 200。
 
 ## 2026-06-12 文件整合狀態（最新優先）
 

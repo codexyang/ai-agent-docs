@@ -112,6 +112,7 @@ sky-shopping-lab
 - 2026-06-14 V2.5 更新：首頁與旅遊頁「更多服務 -> 物流服務」已連到 `https://sky-logistics-system.vercel.app/external`。
 - GitHub 分支：`codex/v2.5-logistics-service-link` 已推到 `codexyang/pegasustour-v1.5`。
 - PR 建立網址：`https://github.com/codexyang/pegasustour-v1.5/pull/new/codex/v2.5-logistics-service-link`。
+- 2026-06-14 重新確認：Pegasustour production HTML 已包含 `https://sky-logistics-system.vercel.app/external`，不再只看到 LINE 連結；物流系統首頁、外部委託表單、Pegasustour production 皆回傳 HTTP 200。
 
 ---
 
