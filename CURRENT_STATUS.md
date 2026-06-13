@@ -73,6 +73,10 @@ amy-player/approved-scripts/{id}.txt
 - 物流狀態：SKY Logistics V2.5 已成為獨立物流模組，正式站 `https://sky-logistics-system.vercel.app`，外部客戶委託表單 `https://sky-logistics-system.vercel.app/external`。
 - 物流接手文件：`/Users/yangkean/Documents/物流系統建置/AGENT_HANDOFF_V2.5.md`。
 - 物流 Git 狀態：本機 commit `6297113 feat: lock SKY logistics V2.5 production module` 已建立；GitHub remote 尚未建立，`codexyang/sky-logistics-system` 目前不存在。
+- 2026-06-14 05:28 物流資料更新決策：採用選項 A，只做 `sky-logistics-system` 的 Supabase `logistics_store` 安全初始化。
+- `logistics_store` 可更新：初始化物流商設定資料、建立 carrier 設定結構、保留 `mock` 為目前啟用 carrier、預留黑貓 / 宅配通 / 7-11 / 全家 / 郵局欄位但先設為 `disabled`。
+- 暫時禁止：不要把 `carrierCode` 從 `mock` 改正式 carrier；不要接正式物流 API key；不要改 `sky-shopping-v1` 的 Supabase schema。
+- 最新系統狀態：本機程式碼、Vercel 部署、Supabase storage 已接起來；本機專案在 `/Users/yangkean/Documents/物流系統建置`。
 
 ### SKY Shopping 資料庫防火牆（2026-06-13）
 

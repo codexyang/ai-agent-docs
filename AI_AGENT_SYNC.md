@@ -19,6 +19,10 @@ Last updated: 2026-06-14
 - 不可亂改：booking/payment/email/LINE/Excel、Pegasustour `app/layout.tsx`、物流 `failed -> reviewing -> ready_to_ship`、外部表單公開入口。
 - 2026-06-14 重新確認：Pegasustour production HTML 已包含 `https://sky-logistics-system.vercel.app/external`，表示「更多服務 -> 物流服務」已正確連到物流外部委託表單。
 - 2026-06-14 重新確認：`https://sky-logistics-system.vercel.app`、`https://sky-logistics-system.vercel.app/external`、`https://pegasustour-v1-5.vercel.app` 皆回傳 HTTP 200。
+- 2026-06-14 05:28 決策：目前選 A，只更新 `sky-logistics-system` 的 Supabase `logistics_store` table，且只做安全初始化。
+- 安全初始化範圍：初始化物流商設定資料、建立 carrier 設定結構、保留 `mock` 為目前啟用 carrier、預留黑貓 / 宅配通 / 7-11 / 全家 / 郵局欄位但先設為 `disabled`。
+- 禁止事項：不要把 `carrierCode` 從 `mock` 直接改成正式 carrier；不要接正式物流 API key；不要改 `sky-shopping-v1` 的 Supabase schema。
+- 最新接手資訊：`sky-logistics-system` 本機程式碼在 `/Users/yangkean/Documents/物流系統建置`；本機程式碼、Vercel 部署、Supabase storage 已接起來。
 
 ## 2026-06-12 文件整合狀態（最新優先）
 
