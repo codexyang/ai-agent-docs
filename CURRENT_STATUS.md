@@ -77,6 +77,10 @@ amy-player/approved-scripts/{id}.txt
 - `logistics_store` 可更新：初始化物流商設定資料、建立 carrier 設定結構、保留 `mock` 為目前啟用 carrier、預留黑貓 / 宅配通 / 7-11 / 全家 / 郵局欄位但先設為 `disabled`。
 - 暫時禁止：不要把 `carrierCode` 從 `mock` 改正式 carrier；不要接正式物流 API key；不要改 `sky-shopping-v1` 的 Supabase schema。
 - 最新系統狀態：本機程式碼、Vercel 部署、Supabase storage 已接起來；本機專案在 `/Users/yangkean/Documents/物流系統建置`。
+- 2026-06-14 05:34 物流 repo push 狀態：暫時不能 push，`https://github.com/codexyang/sky-logistics-system.git` 目前回應 `Repository not found`。
+- Mac 本機物流 repo 是乾淨狀態，最新 commits 為 `58afa87 docs: add safe carrier settings seed` 與 `6297113 feat: lock SKY logistics V2.5 production module`。
+- 正確順序：先建立 GitHub repo `codexyang/sky-logistics-system`，再於 Mac 執行 `git remote add origin https://github.com/codexyang/sky-logistics-system.git`、`git push -u origin main`。
+- GitHub repo 建立前不要先加入 remote，以免指到不存在的 repo。
 
 ### SKY Shopping 資料庫防火牆（2026-06-13）
 
