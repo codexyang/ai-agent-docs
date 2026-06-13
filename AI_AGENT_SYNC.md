@@ -1,6 +1,22 @@
 # AI Agent Sync
 
-Last updated: 2026-06-12
+Last updated: 2026-06-14
+
+## 2026-06-14 SKY Logistics V2.5 正式部署與接手狀態
+
+- 物流系統獨立專案路徑：`/Users/yangkean/Documents/物流系統建置`
+- 物流 production URL：`https://sky-logistics-system.vercel.app`
+- 外部客戶委託表單：`https://sky-logistics-system.vercel.app/external`
+- Pegasustour production URL：`https://pegasustour-v1-5.vercel.app`
+- Pegasustour「更多服務 -> 物流服務」已連到物流外部委託表單。
+- 物流系統後台登入保護已啟用，正式登入由 Vercel env 控制。
+- 2026-06-14 後台登入失敗已修復：Vercel `ADMIN_PASSWORD` 已同步並重新部署；`POST /api/login` 回傳 `200 OK`。
+- 物流系統 V2.5 本機 commit：`6297113 feat: lock SKY logistics V2.5 production module`
+- 物流系統 GitHub remote 尚未建立；`codexyang/sky-logistics-system` 查詢結果為 repository not found，需先建立 GitHub repo 後才能 push。
+- Pegasustour GitHub 分支已建立：`codex/v2.5-logistics-service-link`
+- Pegasustour GitHub PR 建立網址：`https://github.com/codexyang/pegasustour-v1.5/pull/new/codex/v2.5-logistics-service-link`
+- 物流系統接手必讀：`/Users/yangkean/Documents/物流系統建置/AGENT_HANDOFF_V2.5.md`
+- 不可亂改：booking/payment/email/LINE/Excel、Pegasustour `app/layout.tsx`、物流 `failed -> reviewing -> ready_to_ship`、外部表單公開入口。
 
 ## 2026-06-12 文件整合狀態（最新優先）
 

@@ -1,6 +1,6 @@
 # Current Status — AI Agent Docs
 
-**最後整理：** 2026-06-12  
+**最後整理：** 2026-06-14  
 **用途：** 本文件是目前 GitHub / 本地文件整合後的最新入口。若舊文件內容與本文件衝突，以本文件、`LOCKED_SCRIPT_MODE.md`、`AMY-CONTENT-GOVERNANCE.md`、`CORE-RULES.md` 為準。
 
 ---
@@ -26,6 +26,7 @@
 | `/Users/yangkean/Desktop/AI 助理` | `codexyang/ai-agent-docs`，跨 AI 文件與交接資料 | 主控文件庫，已推 GitHub |
 | `/Users/yangkean/Desktop/AI 助理/pegasus-booking` | `codexyang/pegasustour-v1.5`，Pegasustour 訂車/旅遊主系統 | 獨立 Git repo，不要塞進外層 repo |
 | `/Users/yangkean/Desktop/AI 助理/sky-shopping-v1` | SKY Shopping 文件鏡像/規格資料 | 依文件同步，正式站為獨立服務 |
+| `/Users/yangkean/Documents/物流系統建置` | SKY Shopping Logistics System V2.5，獨立物流模組 | 已部署 Vercel production，GitHub remote 尚未建立 |
 
 ---
 
@@ -69,6 +70,9 @@ amy-player/approved-scripts/{id}.txt
 - 策略：維持獨立站，V2.0 只做 API 互通，不合併進 Pegasustour 主系統。
 - 鎖定內容：AMY 開場白 v1.1、品牌名稱、內容治理規則。
 - 待辦方向：商品詳情頁、商品 CRUD、金流、Email/LINE 通知、與旅遊/訂車流程的 API 加購互通。
+- 物流狀態：SKY Logistics V2.5 已成為獨立物流模組，正式站 `https://sky-logistics-system.vercel.app`，外部客戶委託表單 `https://sky-logistics-system.vercel.app/external`。
+- 物流接手文件：`/Users/yangkean/Documents/物流系統建置/AGENT_HANDOFF_V2.5.md`。
+- 物流 Git 狀態：本機 commit `6297113 feat: lock SKY logistics V2.5 production module` 已建立；GitHub remote 尚未建立，`codexyang/sky-logistics-system` 目前不存在。
 
 ### SKY Shopping 資料庫防火牆（2026-06-13）
 
@@ -105,6 +109,9 @@ sky-shopping-lab
   - 舊/既有：`https://pegasustour-v1-5.vercel.app`
   - V2.0 記錄：`https://pegasustour-vip.vercel.app`
 - 保護範圍：booking、payment、LINE、Gmail/Email、Excel、order data、language switcher、navbar/logo 鎖定規格。
+- 2026-06-14 V2.5 更新：首頁與旅遊頁「更多服務 -> 物流服務」已連到 `https://sky-logistics-system.vercel.app/external`。
+- GitHub 分支：`codex/v2.5-logistics-service-link` 已推到 `codexyang/pegasustour-v1.5`。
+- PR 建立網址：`https://github.com/codexyang/pegasustour-v1.5/pull/new/codex/v2.5-logistics-service-link`。
 
 ---
 
