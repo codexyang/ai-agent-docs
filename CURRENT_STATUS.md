@@ -1,6 +1,6 @@
 # Current Status — AI Agent Docs
 
-**最後整理：** 2026-06-14  
+**最後整理：** 2026-06-17（物流 V3 UI + SKY Shopping↔物流 Bridge 上線；補記 Staging 平行版本規劃）
 **用途：** 本文件是目前 GitHub / 本地文件整合後的最新入口。若舊文件內容與本文件衝突，以本文件、`LOCKED_SCRIPT_MODE.md`、`AMY-CONTENT-GOVERNANCE.md`、`CORE-RULES.md` 為準。
 
 ---
@@ -9,13 +9,19 @@
 
 所有 AI Agent 開工前必讀：
 
-1. `CURRENT_STATUS.md`
+1. `CURRENT_STATUS.md`（本文件）
 2. `LOCKED_SCRIPT_MODE.md`
 3. `AMY-CONTENT-GOVERNANCE.md`
 4. `AI_AGENT_MASTER.md`
 5. `CORE-RULES.md`
-6. `ChatGPT-skill.md`
+6. `ChatGPT-skill.md`（已精簡，2026-06-16）
 7. 對應專案的 `AGENT-HANDOFF.md` / `PROJECT_STATUS.md`
+
+> 若有 Staging → Production 部署任務，必讀：`SKILL-STAGING-TO-PRODUCTION.md`
+> 若是 SKY Shopping 推 Production，必須先讀並執行：`SKILL-SKY-SHOPPING-PRODUCTION-SAFETY.md`
+
+2026-06-16 整理：`AI_AGENT_MASTER.md` 已改為精簡接手總控索引；歷史部署與舊流程移到 `AI_AGENT_SYNC.md`。`SKILL-STAGING-TO-PRODUCTION.md` 已整理為正式部署技能流程。
+2026-06-17 新增：`SKILL-SKY-SHOPPING-PRODUCTION-SAFETY.md` 作為 SKY Shopping production 前安全閘門，沒有完整 PASS 報告不可建議部署。
 
 ---
 
@@ -26,7 +32,7 @@
 | `/Users/yangkean/Desktop/AI 助理` | `codexyang/ai-agent-docs`，跨 AI 文件與交接資料 | 主控文件庫，已推 GitHub |
 | `/Users/yangkean/Desktop/AI 助理/pegasus-booking` | `codexyang/pegasustour-v1.5`，Pegasustour 訂車/旅遊主系統 | 獨立 Git repo，不要塞進外層 repo |
 | `/Users/yangkean/Desktop/AI 助理/sky-shopping-v1` | SKY Shopping 文件鏡像/規格資料 | 依文件同步，正式站為獨立服務 |
-| `/Users/yangkean/Documents/物流系統建置` | SKY Shopping Logistics System V2.5，獨立物流模組 | 已部署 Vercel production，GitHub remote 尚未建立 |
+| `/Users/yangkean/Documents/物流系統建置` | SKY Shopping Logistics System，獨立物流模組 | 已部署 Vercel production；GitHub `codexyang/sky-logistics-system` 已建立，main = Production |
 
 ---
 
@@ -72,15 +78,33 @@ amy-player/approved-scripts/{id}.txt
 - 待辦方向：商品詳情頁、商品 CRUD、金流、Email/LINE 通知、與旅遊/訂車流程的 API 加購互通。
 - 物流狀態：SKY Logistics V2.5 已成為獨立物流模組，正式站 `https://sky-logistics-system.vercel.app`，外部客戶委託表單 `https://sky-logistics-system.vercel.app/external`。
 - 物流接手文件：`/Users/yangkean/Documents/物流系統建置/AGENT_HANDOFF_V2.5.md`。
-- 物流 Git 狀態：本機 commit `6297113 feat: lock SKY logistics V2.5 production module` 已建立；GitHub remote 尚未建立，`codexyang/sky-logistics-system` 目前不存在。
-- 2026-06-14 05:28 物流資料更新決策：採用選項 A，只做 `sky-logistics-system` 的 Supabase `logistics_store` 安全初始化。
-- `logistics_store` 可更新：初始化物流商設定資料、建立 carrier 設定結構、保留 `mock` 為目前啟用 carrier、預留黑貓 / 宅配通 / 7-11 / 全家 / 郵局欄位但先設為 `disabled`。
-- 暫時禁止：不要把 `carrierCode` 從 `mock` 改正式 carrier；不要接正式物流 API key；不要改 `sky-shopping-v1` 的 Supabase schema。
-- 最新系統狀態：本機程式碼、Vercel 部署、Supabase storage 已接起來；本機專案在 `/Users/yangkean/Documents/物流系統建置`。
-- 2026-06-14 05:34 物流 repo push 狀態：暫時不能 push，`https://github.com/codexyang/sky-logistics-system.git` 目前回應 `Repository not found`。
-- Mac 本機物流 repo 是乾淨狀態，最新 commits 為 `58afa87 docs: add safe carrier settings seed` 與 `6297113 feat: lock SKY logistics V2.5 production module`。
-- 正確順序：先建立 GitHub repo `codexyang/sky-logistics-system`，再於 Mac 執行 `git remote add origin https://github.com/codexyang/sky-logistics-system.git`、`git push -u origin main`。
-- GitHub repo 建立前不要先加入 remote，以免指到不存在的 repo。
+- 物流 Git 狀態：GitHub remote 已建立 `codexyang/sky-logistics-system`（2026-06-17），已連結 Vercel 自動部署，push main 即觸發部署。
+
+### 2026-06-14 物流 repo 建立前歷史紀錄（已由 2026-06-17 狀態覆蓋）
+
+- 本機 commit `6297113 feat: lock SKY logistics V2.5 production module` 曾先建立；當時 GitHub remote 尚未建立，`codexyang/sky-logistics-system` 回應 `Repository not found`。
+- 物流資料更新決策：只做 `sky-logistics-system` 的 Supabase `logistics_store` 安全初始化，保留 `mock` 為目前啟用 carrier，正式物流 API key 暫不接。
+- 最新有效狀態以 2026-06-17「GitHub remote 已建立、Vercel 自動部署已連結」為準。
+
+### 2026-06-17 上線更新（物流 V3 UI + 訂單橋接）
+
+**物流中心 V3 UI（production）**
+- main HEAD `eddd283`；正式站 `https://sky-logistics-system.vercel.app`，`/api/health` 回 `logisticsEnv=production`。
+- 改動：新增物流單區塊預設收合、查看改右側 Drawer（4 tab：配送資訊/Tracking/Notification/Audit）、列表固定高 560px。僅動前端 public/{index.html,app.js,styles.css}；底層 V2.5 Mock Carrier 流程未變（Feature Freeze）。
+
+**SKY Shopping → 物流 Bridge（已打通並上 production）**
+- ⚠️ 重要：bridge 程式（`sky-shopping-v1/lib/logisticsBridge.ts` + orders/[id] 觸發）原本只在本機未提交、production 從來沒有 bridge。已於 SKY Shopping main `b88b8a9` 補上並部署。
+- 物流端整合接口 `POST /api/integrations/sky-shopping/shipments`，用 header `x-logistics-bridge-secret` 比對物流 env `LOGISTICS_BRIDGE_SECRET`（未設則 403）。
+- env（皆 Production scope，共用同一把密鑰）：物流 `LOGISTICS_BRIDGE_SECRET`；SKY Shopping `SKY_LOGISTICS_BRIDGE_ENABLED=true` / `SKY_LOGISTICS_API_URL=https://sky-logistics-system.vercel.app` / `SKY_LOGISTICS_API_SECRET` / `SKY_LOGISTICS_ALLOW_PRODUCTION=true`。
+- 觸發點：SKY Shopping admin 改訂單狀態 PUT，`paymentStatus='paid'` 或 shipping shipped/delivered 才送；下單/備貨中不送。
+- 回補端點：`POST /api/admin/orders/sync-logistics`（admin auth，commit `f285b06`），帶 `{orderId}` 補單筆、不帶補全部已付款，冪等（物流端以 sourceOrderId 去重）。觸發用 sessionStorage 的 `sky_admin_token`。
+- ⚠️ SKY Shopping Production branch = `main`（push main 即上正式站，2026-06-17 實測確認，非舊註的 dev）。
+- 留存測試單 `BRIDGE_TEST_1781703625`（物流後台可刪）。
+
+### ⏭️ 下一步規劃：Staging 平行版本（後續功能研發測試）
+- 之後要在 **Staging** 開一條與 production 平行的版本，作為後續功能研發 / 測試環境，避免直接動 production。
+- 防火牆對齊：依 DATABASE_FIREWALL，Staging 走 `sky-shopping-lab` 的 staging schema、sandbox 金流；物流 Preview(`VERCEL_ENV=preview`)會被判為 staging tier。
+- 尚未開始（本次僅記錄規劃，未建立平行版本）。
 
 ### SKY Shopping 資料庫防火牆（2026-06-13）
 
@@ -155,6 +179,6 @@ sky-shopping-lab
 
 ## 下一步建議
 
-1. 先把本文件與主控文件推上 GitHub，完成文件整合。
+1. 先把本文件、主控文件與 `SKILL-STAGING-TO-PRODUCTION.md` 推上 GitHub，完成文件整合。
 2. 後續若要動 `pegasus-booking`，進入它自己的 repo 操作，不在外層文件 repo 中直接提交。
 3. 後續若要動 AMY，先確認 `approved-scripts/{id}.txt` 是否存在，再做逐字比對流程。
