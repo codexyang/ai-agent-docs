@@ -39,6 +39,7 @@
 - 新增 `DR_TEST_ACCEPTANCE_CHECKLIST.md` 作為每次 Restore Drill 固定驗收標準。
 - 新增 `RESTORE_SCRIPT_DESIGN.md` 作為 Restore script 設計文件；目前只設計，不執行。
 - 明確定義 Phase 3 進入門檻：Project Identity、Schema、Tables、Storage、Auth Users、Edge Functions、Policies/RLS、Storage Policies、Extensions、Vercel References、GitHub References、Acceptance Checklist、Restore Script 全部 PASS/完成後，才可真正改造 DR-Test。
+- 完成 Phase 2 read-only 補查並新增 `DR_TEST_PHASE2_READONLY_REPORT_2026-06-25.md`：Auth Users = 0、Edge Functions 未見已部署 function、RLS / Policies / Storage Policies / Extensions 已盤點。
 
 ### Merchant / Enterprise V2
 

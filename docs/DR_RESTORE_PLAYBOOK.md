@@ -66,17 +66,17 @@ PASS / FAIL Report
 
 | 項目 | 狀態 |
 |---|---|
-| Project Identity | PENDING |
-| Schema | PENDING |
-| Tables | PENDING |
-| Storage | PENDING |
-| Auth Users | PENDING |
-| Edge Functions | PENDING |
-| Policies / RLS | PENDING |
-| Storage Policies | PENDING |
-| Extensions | PENDING |
-| Vercel References | PENDING |
-| GitHub References | PENDING |
+| Project Identity | PASS |
+| Schema | PASS |
+| Tables | PASS |
+| Storage | PASS |
+| Auth Users | PASS |
+| Edge Functions | PASS |
+| Policies / RLS | PASS |
+| Storage Policies | PASS |
+| Extensions | PASS |
+| Vercel References | PASS |
+| GitHub References | PASS |
 | Acceptance Checklist | 完成：`docs/DR_TEST_ACCEPTANCE_CHECKLIST.md` |
 | Restore Script | 完成設計：`docs/RESTORE_SCRIPT_DESIGN.md` |
 
@@ -89,6 +89,8 @@ PASS / FAIL Report
 - 大量 Migration
 - 改 Project name
 - 執行真實 restore
+
+Phase 2 read-only 詳細報告：`docs/DR_TEST_PHASE2_READONLY_REPORT_2026-06-25.md`
 
 ## 5. Restore Drill Acceptance Test
 

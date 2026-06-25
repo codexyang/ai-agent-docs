@@ -75,10 +75,11 @@ Restore 後應以 Production-like schema 為準，不得手動猜測建表。
 
 ## 4. 待補查
 
-- Auth Users count
-- Edge Functions list
-- Policies / RLS list
-- Storage object list
+- Auth Users count：PASS，`auth.users` = 0（2026-06-25）
+- Edge Functions list：PASS，Dashboard 未見已部署 function（2026-06-25）
+- Policies / RLS list：PASS，已盤點；多數 public tables RLS disabled，`logistics_store` RLS enabled（2026-06-25）
+- Storage object list：PASS，`product-images` 8 files sample 已記錄（2026-06-25）
 - Production DB 真正 ref 與 schema
 - Backup project ref 與 artifact 流程
 
+詳細報告：`docs/DR_TEST_PHASE2_READONLY_REPORT_2026-06-25.md`
