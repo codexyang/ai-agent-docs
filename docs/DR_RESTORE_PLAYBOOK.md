@@ -92,6 +92,8 @@ PASS / FAIL Report
 
 Phase 2 read-only 詳細報告：`docs/DR_TEST_PHASE2_READONLY_REPORT_2026-06-25.md`
 
+Phase 3 執行前方案：`docs/DR_TEST_PHASE3_EXECUTION_PROPOSAL_2026-06-25.md`
+
 ## 5. Restore Drill Acceptance Test
 
 詳細固定驗收標準見 `docs/DR_TEST_ACCEPTANCE_CHECKLIST.md`。
