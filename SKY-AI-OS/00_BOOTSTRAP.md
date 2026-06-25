@@ -1,96 +1,61 @@
-# SKY AI Operating System — Bootstrap
+# SKY AI Operating System
 
-Version: SAOS v2.0  
-Last updated: 2026-06-25
+VERSION  
+2.1
 
-## Highest Principle
+MISSION
 
-任何 Agent 在開始工作前，都必須先確認自己目前所處的環境（Development、Staging、Production、Backup 或 DR-Test），並以最小必要範圍進行操作；若知識庫已有答案，優先引用，不得重新探索整個專案。
+- Protect Production
+- Optimize Token
+- Fast Handoff
 
-## Mandatory Startup Order
+## READ ORDER
 
-Every Agent must read these files first, in this order:
-
-1. `00_BOOTSTRAP.md`
-2. `01_MASTER_INDEX.md`
+1. `knowledge/CURRENT_STATE.md`
+2. `knowledge/DECISIONS.md`
 3. `03_DATABASE_MAP.md`
-4. `knowledge/CURRENT_STATE.md`
+4. `TASK.md`
 5. `08_PROJECT_STATUS.md`
 6. `09_AGENT_HANDOFF.md`
+7. `DECISION_LOCK.md`
+8. `MEMORY_CACHE.md`
 
-Only after this sequence may an Agent inspect task-specific files.
+## PROHIBITED
 
-## Repository Scanning Rule
+- Do not scan the entire Repository.
+- Do not re-analyze architecture if SAOS already answers it.
+- Do not re-explore Database unless the task requires it.
+- Do not repeat project background.
+- Do not write secrets into Git, docs, reports, or chat output.
 
-Agents must not scan the entire repository by default.
+## IF NEEDED
 
-Allowed:
+Search only related folders or files.
 
-- Read the SAOS knowledge base first.
-- Inspect only the files required for the current task.
-- Use targeted search terms when the knowledge base is insufficient.
+## COMMAND MODES
 
-Not allowed unless explicitly justified:
+- `AUTO`: read SAOS, execute highest-priority `TASK.md`, update knowledge, stop.
+- `FAST`: read bootstrap, execute, update, stop.
+- `SAFE`: read only, report, stop.
+- `BUILD`: generate, build, report.
 
-- Full repository crawling.
-- Blind migration discovery against Production.
-- Searching for secrets across the whole workspace.
-- Running broad write operations.
+## AGENT LEVELS
 
-## Environment Confirmation
+- `L0`: Read Only
+- `L1`: Code
+- `L2`: Build
+- `L3`: Migration
+- `L4`: Deploy
+- `L5`: Production
 
-Before any action, output or internally verify:
+Default level is `L0` unless the user explicitly grants more.
 
-- Current Git branch.
-- Target environment.
-- Whether database access is required.
-- Whether the target is Production, Backup, Staging, Development, or DR-Test.
-- Whether the action is read-only or write-capable.
+## COMPLETE THEN UPDATE
 
-## Database Safety
+- `TASK.md`
+- `08_PROJECT_STATUS.md`
+- `09_AGENT_HANDOFF.md`
+- `10_CHANGELOG.md`
+- `MEMORY_CACHE.md`
 
-Production:
-
-- Never connect for development work.
-- Never run migration, db push, reset, seed, truncate, delete, or write test.
-- Deploy only after approval, backup, rollback tag, and validation.
-
-Backup:
-
-- Never use as a development database.
-- Never overwrite without a backup procedure.
-
-Staging / Development:
-
-- Can be used for testing within approved scope.
-- Must not be assumed to contain Production-equivalent row data.
-
-DR-Test:
-
-- Used only for Restore Drill and disaster recovery validation.
-- May be cleaned only after manifest, backup, and explicit approval.
-
-## Standard Output Format
-
-Each completed task should return:
-
-```text
-STATUS
-PASS / BLOCKED
-
-SUMMARY
-One sentence.
-
-FILES
-Changed files.
-
-DATABASE
-Development / Staging / Production / Backup / DR-Test / None
-
-NEXT
-Recommended next step.
-
-HANDOFF
-What the next Agent should know.
-```
-
+STOP.

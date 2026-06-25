@@ -11,7 +11,8 @@ Build a stable AI Operating System knowledge base and prepare DR-Test / Restore 
 
 Project Ref: `kyzwwotjunouzegyfqgz`  
 Purpose: SKY Shopping DR-Test / Restore Drill candidate  
-Status: connection validation pending due direct connection behavior  
+Project name observed: `DR-test of sky-shopping`  
+Status: blocked on DB connection validation  
 Database changes performed: none
 
 ## Completed
@@ -20,6 +21,15 @@ Database changes performed: none
 - Existing DR-Test inventory summarized.
 - Five-environment model defined.
 - Production safety rules documented.
+
+## Attempted on 2026-06-25
+
+- Direct URL template confirmed from dashboard:
+  - `postgresql://postgres:[REDACTED]@db.kyzwwotjunouzegyfqgz.supabase.co:5432/postgres`
+- Session pooler URL format confirmed from dashboard:
+  - `postgresql://postgres.kyzwwotjunouzegyfqgz:[REDACTED]@aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres`
+- Two user-provided session pooler passwords were each tested once.
+- Result: no PostgreSQL identity response; no successful connection; no DB writes.
 
 ## Pending
 
@@ -32,9 +42,10 @@ Database changes performed: none
 
 ## Blockers
 
+DR-Test connection has not yet returned a successful `select current_database(), current_user;`.
+
 Direct Supabase DB connection may require a connection path compatible with the local network. The dashboard direct URL uses:
 
 `postgresql://postgres:[REDACTED]@db.kyzwwotjunouzegyfqgz.supabase.co:5432/postgres`
 
 No password is stored here.
-

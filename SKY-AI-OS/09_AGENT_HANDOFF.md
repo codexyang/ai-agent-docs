@@ -28,7 +28,16 @@ The user wants a clear, reusable operating system for all AI Agents working on S
 
 ## Current Next Step
 
-Resolve DR-Test connection path/password, then perform:
+Resolve DR-Test connection path/password. Two session pooler URLs provided by the user were each tested once on 2026-06-25; neither returned a DB identity response.
+
+Recommended next checks:
+
+1. In Supabase Dashboard SQL Editor for `kyzwwotjunouzegyfqgz`, run:
+   - `select current_database(), current_user;`
+2. If dashboard SQL works, reset or confirm the DR-Test DB password.
+3. Use one confirmed connection method only.
+
+After connection PASS, perform:
 
 1. Read-only identity check.
 2. `pg_dump`.
@@ -36,9 +45,8 @@ Resolve DR-Test connection path/password, then perform:
 4. Storage manifest.
 5. Pre-clean report.
 
-Only after the user approves should cleanup or project renaming proceed.
+Only after the user approves should cleanup proceed. Project has already been renamed in dashboard to `DR-test of sky-shopping`.
 
 ## Handoff Summary
 
 Do not start by scanning the repository. Use SAOS knowledge files first, then inspect only task-specific files.
-
