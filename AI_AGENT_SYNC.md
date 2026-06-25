@@ -1,6 +1,35 @@
 # AI Agent Sync
 
-Last updated: 2026-06-14
+Last updated: 2026-06-25
+
+## 2026-06-25 SKY Shopping DR-Test / Restore Drill 基線與接手文件
+
+- 新增 `SKILL-SKY-SHOPPING-DR-RESTORE.md`，作為 SKY Shopping DR-Test / Restore Drill 的固定技能流程。
+- 新增 `docs/SKY_SHOPPING_DR_TEST_RESTORE_BASELINE_MANIFEST.md`，定義 Restore Baseline Manifest：保留的 schema/table/bucket/functions/policies、可清除的測試資料範圍、DR-Test 完成後預期狀態、Restore 成功驗證清單。
+- 新增 `docs/SKY_SHOPPING_DR_RESTORE_HANDOFF.md`，給下一位 Agent 直接接手。
+- 目前 DR-Test 候選 Project 是 `kyzwwotjunouzegyfqgz`，Dashboard name `sky-shopping test dev`，URL `https://kyzwwotjunouzegyfqgz.supabase.co`。
+- 已 read-only 盤點：public tables 共 12 張，精確 row counts：`Admin=1`、`AdminLog=59`、`Category=126`、`NotificationLog=1`、`Order=18`、`OrderItem=18`、`Product=123`、`Shipment=1`、`SiteStats=1`、`Supplier=10`、`TrackingEvent=3`、`logistics_store=4`。
+- Storage：`product-images` bucket，public=true，8 files。
+- SQL migration：Dashboard 顯示 no migrations；未看到 `_prisma_migrations`；只有 Supabase 內建 `auth/realtime/storage` migration tables。
+- Vercel env 檢查：`sky-shopping-v1`、`sky-logistics-system`、`pegasustour-v1-5` 的 preview / production / development 均未找到 `kyzwwotjunouzegyfqgz` 或其 Supabase URL。
+- 尚未完成：Auth Users count、Edge Functions list、Policies/RLS list、Storage object list、現況 DB dump。
+- 結論：`kyzwwotjunouzegyfqgz` 只可列為 DR-Test 候選。未完成補查與使用者批准前，不得清理、不得改名、不得 restore、不得更動 env。
+
+## 2026-06-17 SKY Shopping Production Safety Skill
+
+- 新增 `SKILL-SKY-SHOPPING-PRODUCTION-SAFETY.md`，作為 SKY Shopping staging 推 production 前的固定安全檢查。
+- 這份 SKILL 的任務不是部署，而是保護 Production：先檢查環境隔離、DB 風險、程式碼變更範圍、staging 功能測試、build、rollback。
+- 沒有輸出完整 `Production Deployment Safety Report` 且全部 PASS，不可建議推 Production。
+- 即使全部 PASS，也必須等使用者明確說「可以推 Production」後，才可進入 production 部署建議。
+- `SKILL-STAGING-TO-PRODUCTION.md` 已補上：SKY Shopping production 前必須先執行本安全 SKILL。
+
+## 2026-06-16 主控文件精簡與 Production SKILL 整理
+
+- `AI_AGENT_MASTER.md` 已由歷史長文改為精簡接手總入口，只保留最新判定、專案速查、全域硬規則、handoff 更新規則。
+- `ChatGPT-skill.md` 已精簡為跨 AI 速查文件，舊的重複歷史段落不再作為主要接手依據。
+- 新增/整理 `SKILL-STAGING-TO-PRODUCTION.md`，把 SKY Logistics V2.5 從 Staging 推 Production 的實際踩坑整理成部署技能。
+- Production 部署關鍵判定：先 localhost/build，確認 Vercel env，env 修改後必須 redeploy，部署後必測 health/login/page smoke test，最後更新 STABLE_LOCK 與 handoff。
+- 主控文件原則：最新結論放 `CURRENT_STATUS.md` 與 `AI_AGENT_MASTER.md`；歷史紀錄放本文件，避免下一個 AI 重讀重複段落。
 
 ## 2026-06-14 SKY Logistics V2.5 正式部署與接手狀態
 

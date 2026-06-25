@@ -1,179 +1,103 @@
-# AI Agent 主控文件 — 所有 AI 接手必讀
+# AI Agent 主控文件 — 接手總入口
 
-> **2026-06-12 整合更新：** 開工前先讀 `CURRENT_STATUS.md`。若本文件中任何舊資訊與 `CURRENT_STATUS.md`、`LOCKED_SCRIPT_MODE.md`、`AMY-CONTENT-GOVERNANCE.md` 或 `CORE-RULES.md` 衝突，以較新的鎖定規則為準。
+**最後更新：** 2026-06-16
+**負責人：** Yangkean（Pegasustour VIP）
+**適用：** Claude Code / ChatGPT / Codex / 任何接手 AI Agent
 
-**最後更新：** 2026-06-12
-**負責人：** Yangkean（Pegasustour VIP 負責人）
-**適用：** Claude Code / ChatGPT / Codex / 任何 AI Agent
-
----
-
-## ⚡ Mandatory Startup Rule — 所有 Agent 必須遵守
-
-```
-Before doing ANYTHING:
-
-1. Read CURRENT_STATUS.md          ← 最新整合入口
-2. Read LOCKED_SCRIPT_MODE.md      ← AMY 最高優先鐵規
-3. Read AMY-CONTENT-GOVERNANCE.md  ← AMY 法律層級內容治理
-4. Read AI_AGENT_MASTER.md         ← 你正在讀這份
-5. Read CORE-RULES.md              ← 所有專案核心規則
-6. Read ChatGPT-skill.md           ← 跨 AI 同步狀態
-7. Read 對應專案的 AGENT-HANDOFF.md
-
-Do NOT ask repeated onboarding questions.
-Do NOT overwrite locked content.
-Do NOT modify without user authorization.
-Preserve stability. Follow locked standards.
-```
+> 本文件只保留「接手必須知道的最新判定」。詳細歷史、舊流程、部署紀錄請查 `AI_AGENT_SYNC.md` 與各專案 handoff 文件。若內容衝突，以 `CURRENT_STATUS.md`、`LOCKED_SCRIPT_MODE.md`、`AMY-CONTENT-GOVERNANCE.md`、`CORE-RULES.md` 為準。
 
 ---
 
-## 使用者基本資訊
+## 1. 開工必讀順序
 
-| 項目 | 內容 |
-|------|------|
-| 身份 | Pegasustour VIP 旅遊公司負責人 |
-| 溝通語言 | 繁體中文（必須用繁中回覆） |
-| 工作習慣 | 增量更新、穩定優先、不重構 |
-| 使用的 AI | Claude Code + ChatGPT + Codex（同時並行） |
-| 電腦環境 | MacBook Air Intel x86_64, macOS 12.7.6 |
-| 同步機制 | 每次工作結束必須更新本文件 + ChatGPT-skill.md |
+1. `CURRENT_STATUS.md` — 最新整合入口與衝突判定
+2. `LOCKED_SCRIPT_MODE.md` — AMY 最高優先鐵規
+3. `AMY-CONTENT-GOVERNANCE.md` — AMY 內容治理
+4. `AI_AGENT_MASTER.md` — 本主控文件
+5. `CORE-RULES.md` — 所有專案核心規則
+6. `ChatGPT-skill.md` — 跨 AI 精簡同步技能
+7. 對應專案的 `AGENT-HANDOFF.md` / `PROJECT_STATUS.md`
+8. 若任務是 Staging → Production：加讀 `SKILL-STAGING-TO-PRODUCTION.md`
+9. 若任務是 SKY Shopping 推 Production：先執行 `SKILL-SKY-SHOPPING-PRODUCTION-SAFETY.md`
+10. 若任務是 SKY Shopping DR-Test / Restore Drill：先讀 `SKILL-SKY-SHOPPING-DR-RESTORE.md`、`docs/SKY_SHOPPING_DR_TEST_RESTORE_BASELINE_MANIFEST.md`、`docs/SKY_SHOPPING_DR_RESTORE_HANDOFF.md`
 
----
-
-## 所有進行中專案總覽
-
-### 1. Pegasustour Booking / V2.0 整合
-- **狀態：** V1.53 多語言穩定歷史 + V2.0 兩站整合記錄並存；最新判定見 `CURRENT_STATUS.md`
-- **網址記錄：** https://pegasustour-v1-5.vercel.app / https://pegasustour-vip.vercel.app
-- **本地路徑：** `/Users/yangkean/Desktop/AI 助理/pegasus-booking`
-- **穩定 commit：** `64a8f6f`
-- **技術棧：** Next.js / TypeScript / Supabase / Prisma / Tailwind
-- **🔒 禁止修改：** `app/layout.tsx`（全站崩潰風險）
-- **待辦：** ECPay/LINE Pay 金流接入、Email/LINE 訂單通知
-
-### 2. 🛒 SKY Shopping v1.0（購物平台）
-- **狀態：** 穩定鎖定（2026-06-08）
-- **網址：** https://sky-shopping-v1.vercel.app
-- **本地路徑：** `/Users/yangkean/Desktop/AI 助理/sky-shopping-v1`（或 `/Users/yangkean/sky-shopping-v1`）
-- **穩定 commit：** `6d471c6`（後台特賣管理 + SKU 批量補全）
-- **技術棧：** Next.js 15 / TypeScript / Prisma / Supabase / Tailwind CSS v4 / Zustand
-- **🔒 禁止修改：** `app/layout.tsx`、`lib/db.ts`、`prisma/schema.prisma`
-- **允許微調：** UI 調整、文字修改、bug 修復
-- **待辦：** 商品詳情頁、金流接入、Email/LINE 通知、V2.0 API 互通
-
-### 3. AMY AI 銷售大使（SKY Shopping）
-- **狀態：** 2026-06-11 起進入 `LOCKED_SCRIPT_MODE = TRUE`
-- **最高規則：** 只能逐字朗讀 `amy-player/approved-scripts/{id}.txt`
-- **禁止：** AI 自創台詞、rewrite、`build_script()`、根據商品推測功效或銷售文案
-- **無核准稿：** 只能說「請洽客服了解更多詳情」
-- **舊 SadTalker / 模板文件：** 視為 legacy planning，不得覆蓋內容治理鐵規
+不要重複問已在文件中的 onboarding 問題；先讀完再執行。
 
 ---
 
-## AMY 影片生成歷史流程（Legacy）
+## 2. 全域硬規則
 
-> 下列 SadTalker 流程保留為歷史紀錄。任何 AMY 語音/影片生成前，必須先通過 `LOCKED_SCRIPT_MODE.md` 與 `AMY-CONTENT-GOVERNANCE.md` 的核准稿逐字比對規則。
-
-```bash
-# 第一步：啟動環境
-cd ~/Desktop/SadTalker
-conda activate sadtalker
-
-# 第二步：文字轉語音（用 Edge TTS，效果最自然）
-edge-tts --voice zh-CN-XiaoxiaoNeural --text "你的文字內容" --write-media ~/Desktop/amy_edge.mp3 && \
-~/miniforge3/envs/sadtalker/bin/ffmpeg -i ~/Desktop/amy_edge.mp3 -ar 16000 -ac 1 ~/Desktop/amy_edge.wav -y
-
-# 試聽
-afplay ~/Desktop/amy_edge.mp3
-
-# 備用：Mac 內建語音（語調較不自然）
-# say -v Mei-Jia "你的文字內容" -o ~/Desktop/amy_speech.aiff && \
-# ~/miniforge3/envs/sadtalker/bin/ffmpeg -i ~/Desktop/amy_speech.aiff -ar 16000 -ac 1 ~/Desktop/amy_speech.wav -y
-
-# 第三步：生成影片（防斷線）
-caffeinate -d python inference.py \
-  --driven_audio ~/Desktop/amy_speech.wav \
-  --source_image ~/Desktop/AI\ 機器人_Amy/S__11845643.jpg \
-  --result_dir ./results \
-  --enhancer gfpgan
-```
-
-**Intel Mac 速度：** 約每 5 秒影片需 19 分鐘，30 秒影片需 2 小時
+- 所有回覆使用繁體中文。
+- 穩定優先、增量修改，不重構、不覆蓋鎖定內容。
+- 視覺或程式修改必須先 localhost 驗證，再 push / deploy。
+- 不確定是否超出範圍時先問使用者。
+- Git commit 只包含本次任務相關檔案。
+- 禁止上傳 `.env`、token、credentials、client secret、build cache、`node_modules/`。
 
 ---
 
-## AMY 宣傳文字稿（最新版）
+## 3. 專案速查
 
-> 大家好，歡迎來到 SKY Shopping 商城精選館。今天想跟您分享幾款台灣在地特色精品，包括牛樟芝滴丸、五葉松純露水，以及古坑精品咖啡。我們希望透過精選與把關，讓您更安心地認識適合自己的產品。接下來，我也會陸續介紹更多台灣特色好物。
-
-⚠️ 文字稿由用戶決定，以用戶最新口頭/文字說明為準，AI 不得自行更改。
-
----
-
-## 電腦環境紀錄
-
-| 工具 | 版本/路徑 | 狀態 |
-|------|----------|------|
-| macOS | 12.7.6 Intel x86_64 | ✅ |
-| Homebrew | v5.1.15, `/usr/local/bin/brew` | ✅ |
-| Miniforge | `~/miniforge3` | ✅ |
-| Conda 環境 sadtalker | Python 3.10 | ✅ |
-| ffmpeg | `~/miniforge3/envs/sadtalker/bin/ffmpeg` | ✅ |
-| SadTalker | `~/Desktop/SadTalker` | ✅ 模型全下載 |
-| Node.js / npm | 系統預設 | ✅ |
-| Git | `/usr/local/bin/git` v2.54.0 | ✅ |
-| 磁碟可用空間 | 約 49GB（2026-06-10 清理後） | ✅ |
+| 專案 | 正式站 / 入口 | 本地路徑 | 狀態 | 鎖定重點 |
+|---|---|---|---|---|
+| Pegasustour Booking | `https://pegasustour-vip.vercel.app`；歷史站 `https://pegasustour-v1-5.vercel.app` | `/Users/yangkean/Desktop/AI 助理/pegasus-booking` | V1.53 多語言歷史穩定 + V2.0 整合記錄並存 | `app/layout.tsx` 禁改；booking/payment/LINE/Email/Excel/order data 保護 |
+| SKY Shopping | `https://sky-shopping-v1.vercel.app` | `/Users/yangkean/Desktop/AI 助理/sky-shopping-v1` 或 `/Users/yangkean/sky-shopping-v1` | v1.0 穩定鎖定，V2.0 只做 API 互通 | `app/layout.tsx`、`lib/db.ts`、`prisma/schema.prisma` 禁改 |
+| SKY Logistics | `https://sky-logistics-system.vercel.app`；公開表單 `/external` | `/Users/yangkean/Documents/物流系統建置` | V2.5 Phase 1 已部署 Production | 外部表單不需登入；後台不可公開；異常流程 `failed -> reviewing -> ready_to_ship` 禁亂改 |
+| AMY AI 銷售大使 | Windows 播放器 `localhost:8899` | `C:\Users\USER\Desktop\AI 助理\amy-player\` | `LOCKED_SCRIPT_MODE = TRUE` | 只能逐字朗讀 `approved-scripts/{id}.txt` |
 
 ---
 
-## 已知問題與永久修復記錄
+## 4. AMY 內容治理
 
-| 問題 | 修復位置 | 修復方式 |
-|------|---------|---------|
-| torchvision functional_tensor | `~/miniforge3/envs/sadtalker/lib/.../basicsr/data/degradations.py` line 8 | 改為 `from torchvision.transforms.functional import rgb_to_grayscale` |
-| llvmlite 編譯失敗 | conda sadtalker 環境 | `conda install -c conda-forge llvmlite numba librosa` |
-| wget SSL 憑證失敗 | `~/Desktop/SadTalker/scripts/download_models.sh` | 已加 `--no-check-certificate -c` |
-| Mac 睡眠斷網 | 執行指令前加 `caffeinate -d` | 防止系統睡眠 |
+AMY 相關任務一律以 `LOCKED_SCRIPT_MODE.md` 和 `AMY-CONTENT-GOVERNANCE.md` 為最高規則。
 
----
-
-## 跨 AI 同步規則
-
-### 每次工作結束前必須更新：
-0. `CURRENT_STATUS.md`（若整體狀態、衝突判定、repo 分工有變）
-1. 本文件 `AI_AGENT_MASTER.md`
-2. `ChatGPT-skill.md`（ChatGPT 讀這個）
-3. `CORE-RULES.md`（專案規則）
-4. Claude memory：`/Users/yangkean/.claude/projects/-Users-yangkean/memory/`
-   - `MEMORY.md`（索引）
-   - 對應的 `project_xxx.md`
-
-### 各 AI 讀哪個文件：
-| AI | 主要讀取文件 |
-|----|------------|
-| Claude Code | `~/.claude/projects/.../memory/` + 本文件 |
-| ChatGPT | `ChatGPT-skill.md` + 本文件 |
-| Codex | `AGENT-HANDOFF.md` + 本文件 |
-| 任何新 AI | 本文件優先，再讀專案專屬文件 |
+- 只能逐字朗讀 `amy-player/approved-scripts/{id}.txt`
+- 禁止 AI rewrite / 潤稿 / 摘要 / 擴寫
+- 禁止 `build_script()` 或任何自動生成商品介紹稿
+- 禁止根據商品資料推測功效或銷售文案
+- 無核准稿時只能說：「請洽客服了解更多詳情」
+- 生成音訊或影片前必須 Script Diff；差異超過 1 字即退件
+- SadTalker / AMY-B 模板文件全部視為 legacy planning，不作為目前實作依據
 
 ---
 
-## 工作原則（所有 AI 必須遵守）
+## 5. Staging → Production 部署提醒
 
-1. **繁中溝通** — 所有回覆必須用繁體中文
-2. **增量更新** — 不重構、不大改、穩定優先
-3. **詢問再動** — 不確定是否超出範圍，先問用戶
-4. **同步文件** — 每次工作結束必須更新所有記憶文件
-5. **token 效率** — 本地確認後才 push，禁止多輪小修循環
-6. **鎖定保護** — 鎖定的 commit/檔案絕對不動
+最近 SKY Logistics V2.5 從 staging 推 production 的關鍵經驗已整理成：
+
+`SKILL-STAGING-TO-PRODUCTION.md`
+
+部署任務必須特別確認：
+
+- 本地 `npm run build` 與 localhost 核心頁/API 先通過。
+- Vercel env 必須與 handoff 文件一致，尤其 `ADMIN_PASSWORD`。
+- Vercel env 修改後一定要 redeploy，否則 production 不會吃到新值。
+- Production DB 不拿來測試；AI 預設只連 Development / Staging。
+- 部署後必測 `/api/health`、登入 API、公開入口、後台保護。
+- 成功後更新 `STABLE_LOCK.md`、handoff、`CURRENT_STATUS.md`、本文件與 Claude memory。
+- SKY Shopping production 前必須先輸出 `Production Deployment Safety Report`，所有項目 PASS 且使用者明確同意後才可建議部署。
 
 ---
 
-## 下次接手 Agent 待辦事項
+## 6. 跨 AI 同步規則
 
-- [ ] 確認 AMY `approved-scripts/{id}.txt` 是否存在且已核准
-- [ ] 任何 AMY 音訊/影片生成前執行 Script Diff
-- [ ] SKY Shopping 商品詳情頁開發
-- [ ] 金流接入評估（ECPay / LINE Pay）
+每次工作結束前，依實際變更同步更新：
+
+1. `CURRENT_STATUS.md` — 整體狀態、URL、待辦、衝突判定
+2. `AI_AGENT_MASTER.md` — 本主控文件，僅更新最新判定
+3. `ChatGPT-skill.md` — ChatGPT / 跨 AI 精簡同步
+4. 對應專案的 `PROJECT_STATUS.md` 或 `AGENT-HANDOFF.md`
+5. Claude memory：`/Users/yangkean/.claude/projects/-Users-yangkean/memory/`
+
+文件原則：主控文件只放最新結論；歷史細節放 `AI_AGENT_SYNC.md`，避免接手 AI 被重複段落干擾。
+
+---
+
+## 7. 下次接手優先事項
+
+- SKY Logistics：GitHub remote 尚未建立；建立後再 push production lock commit。
+- SKY Logistics：執行 `seed-carrier-settings.sql`、建立 staging sandbox、規劃 Phase 2 管理員資料表。
+- SKY Shopping：商品詳情頁、金流、Email/LINE 通知、旅遊/訂車 API 加購互通。
+- SKY Shopping DR-Test：`kyzwwotjunouzegyfqgz` 已列為 Restore Drill 候選；補查 Auth Users / Edge Functions / Policies 後，再等使用者批准清理與改名。
+- Pegasustour：金流與通知正式接入前，先確認 env、payment flow、多語言 QA。
+- AMY：任何生成前先確認核准稿存在並做逐字比對。

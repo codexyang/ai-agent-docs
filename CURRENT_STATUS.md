@@ -1,6 +1,6 @@
 # Current Status — AI Agent Docs
 
-**最後整理：** 2026-06-17（物流 V3 UI + SKY Shopping↔物流 Bridge 上線；補記 Staging 平行版本規劃）
+**最後整理：** 2026-06-24（補記 Supabase Project 角色登記與存取限制）
 **用途：** 本文件是目前 GitHub / 本地文件整合後的最新入口。若舊文件內容與本文件衝突，以本文件、`LOCKED_SCRIPT_MODE.md`、`AMY-CONTENT-GOVERNANCE.md`、`CORE-RULES.md` 為準。
 
 ---
@@ -19,6 +19,7 @@
 
 > 若有 Staging → Production 部署任務，必讀：`SKILL-STAGING-TO-PRODUCTION.md`
 > 若是 SKY Shopping 推 Production，必須先讀並執行：`SKILL-SKY-SHOPPING-PRODUCTION-SAFETY.md`
+> 若是 SKY Shopping DR-Test / Restore Drill，必讀：`SKILL-SKY-SHOPPING-DR-RESTORE.md`、`docs/SKY_SHOPPING_DR_TEST_RESTORE_BASELINE_MANIFEST.md`、`docs/SKY_SHOPPING_DR_RESTORE_HANDOFF.md`
 
 2026-06-16 整理：`AI_AGENT_MASTER.md` 已改為精簡接手總控索引；歷史部署與舊流程移到 `AI_AGENT_SYNC.md`。`SKILL-STAGING-TO-PRODUCTION.md` 已整理為正式部署技能流程。
 2026-06-17 新增：`SKILL-SKY-SHOPPING-PRODUCTION-SAFETY.md` 作為 SKY Shopping production 前安全閘門，沒有完整 PASS 報告不可建議部署。
@@ -86,6 +87,14 @@ amy-player/approved-scripts/{id}.txt
 - 物流資料更新決策：只做 `sky-logistics-system` 的 Supabase `logistics_store` 安全初始化，保留 `mock` 為目前啟用 carrier，正式物流 API key 暫不接。
 - 最新有效狀態以 2026-06-17「GitHub remote 已建立、Vercel 自動部署已連結」為準。
 
+### 2026-06-24 Production UI 版本鎖定與備份
+
+- 發布內容：首頁標頭限定 UI 調整（`SKY SHOPPING MALL`、副標、字體尺寸與向左 8px）；無資料庫、migration、付款或物流變更。
+- Vercel Production：`dpl_EVEL4LS9WNtrHRewAoeaed9bdrT4`，狀態 `Ready`，alias 為 `https://sky-shopping-v1.vercel.app`。
+- Git lock：commit `b4d0f6b`（`fix(header): update SKY Shopping Mall branding`），branch `codex/header-copy-preview`，tag `production-header-ui-20260624` 已推送至 GitHub。
+- Backup artifact：`/Users/yangkean/sky-shopping-backup/daily/mall_20260624_203600.sql`（79,926 bytes；SHA-256 `3dcc7ece6abfcf755154aa5ffc65b8e01750a802b2385be3d42a1996afeb2c24`）。
+- Backup validation：Production 唯讀確認 `postgres` / `postgres`，`public` schema 為 9 tables；未對 Production 或 Backup DB 執行寫入。
+
 ### 2026-06-17 上線更新（物流 V3 UI + 訂單橋接）
 
 **物流中心 V3 UI（production）**
@@ -106,23 +115,26 @@ amy-player/approved-scripts/{id}.txt
 - 防火牆對齊：依 DATABASE_FIREWALL，Staging 走 `sky-shopping-lab` 的 staging schema、sandbox 金流；物流 Preview(`VERCEL_ENV=preview`)會被判為 staging tier。
 - 尚未開始（本次僅記錄規劃，未建立平行版本）。
 
-### SKY Shopping 資料庫防火牆（2026-06-13）
+### SKY Shopping 資料庫防火牆（2026-06-24）
 
-目前先採用 2 Supabase Project / 4 層邏輯防火牆：
+> Project 可能分屬不同 Supabase 帳號；不得以目前登入帳號可見的 Project 數量推論四層架構是否存在。以下角色登記優先於舊文件中互相衝突的 Project Ref 描述。
 
-```text
-sky-shopping-prod
-└── Production：正式客戶、正式訂單、正式金流
+| Project / Ref | 已登記角色 | Codex 存取規則 |
+|---|---|---|
+| codexyang's Project | SKY Shopping Production | 禁止修改、migration、測試連線寫入。 |
+| `rvrdlofcaerzxktqpbjk` (`sky-shopping-dev`) | Development | 可供本機開發與 Dev-only 測試；不得用於 Production 或 Staging 驗證。 |
+| `udfijsgvwihushsylglb` (`sky-shopping-staging`) | Staging | 可供 Preview／Staging 驗證；不得推送或連至 Production。 |
+| `kyzwwotjunouzegyfqgz` (`sky-shopping test dev`) | DR-Test / Restore Drill 候選（舊 Test/Staging 登記） | 2026-06-25 已完成 read-only 初盤：12 public tables、`product-images` bucket、Vercel 三專案三環境未見引用。尚未清理、尚未改名；Auth Users / Edge Functions / Policies 尚待補查，未取得使用者批准前禁止清理。必讀 `SKILL-SKY-SHOPPING-DR-RESTORE.md`。 |
+| `iynhnfquzvzkvywaitoh` | 舊 DR-Test 候選／待確認 | 使用者後續要求先處理 `kyzwwotjunouzegyfqgz`；不得混用。若要重新操作此 ref，必須重新登入確認 project ref、資料表、筆數、Storage buckets 與 Vercel 引用。 |
+| `yafykwpivreqexbcilfm` | 未確認 | 禁止操作，須先查明用途。 |
 
-sky-shopping-lab
-├── Backup：外部 pg_dump 或短期 mirror
-├── Staging：付款 / 通知 / 訂單測試
-└── Development：Claude / Codex / AI 工作區
-```
+> 注意：既有 Baseline Backup 報告另記錄 `iynhnfquzvzkvywaitoh`（第 15 字為 `w`）為 Backup Ref，並稱 `...vaitoh` 為舊誤植。2026-06-25 後續決策改為先清點 `kyzwwotjunouzegyfqgz` 作為 DR-Test / Restore Drill 候選；目前只完成 read-only 盤點與 Manifest / Handoff，不代表已批准清理或改名。
+
+**憑證紀錄規則：** Dev 與 Staging 的 `DATABASE_URL`、`DIRECT_URL`、anon key、service-role key 僅存放在專案本機的 `.env.local`／`.env.staging`（皆被 Git 忽略），不得寫入本文件、提交版本控制或貼入交接紀錄。新 Agent 只能讀取鍵名與 Project Ref，需連線時先確認目標環境。
 
 硬規則：
 
-- Production 既有 project 不動，不重設，不拿來測試。
+- Production 既有 project 不動、不重設、不拿來測試；不得因本機或單一帳號的可見 Project 清單推論環境架構。
 - Backup 先建，確認可還原後再建 Staging / Development。
 - Claude / Codex / AI 預設只能連 `Development`。
 - 測試付款、訂單、Email/LINE 通知只能連 `Staging`，金流必須 sandbox。
