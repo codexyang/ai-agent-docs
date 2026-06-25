@@ -86,3 +86,9 @@ Production 相關變更必須先有 safety report。
 
 執行 `docs/AGENT_BOOTSTRAP_CHECKLIST.md`，不要直接改 code 或 DB。
 
+若任務涉及 Enterprise V2 / DR-Test 目標資料庫架構，另讀：
+
+- `docs/DR_TEST_PHASE2_READONLY_REPORT_2026-06-25.md`
+- `docs/DR_TEST_TARGET_ARCHITECTURE_V2.md`
+
+注意：`DR_TEST_TARGET_ARCHITECTURE_V2.md` 是目標架構，不代表目前 DB 已存在。

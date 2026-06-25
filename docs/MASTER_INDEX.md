@@ -30,6 +30,7 @@
 | `RESTORE_SCRIPT_DESIGN.md` | Restore script 設計版；只文件化，不代表可執行。 |
 | `DR_TEST_PHASE2_READONLY_REPORT_2026-06-25.md` | DR-Test Phase 2 唯讀盤點結果：Auth、Edge Functions、RLS、Storage Policies、Extensions。 |
 | `DR_TEST_PHASE3_EXECUTION_PROPOSAL_2026-06-25.md` | Phase 3 改造前執行方案：備份、manifest、清理 SQL 草案、改名、restore drill。 |
+| `DR_TEST_TARGET_ARCHITECTURE_V2.md` | 使用者提供之 DR-Test / Enterprise V2 目標架構圖的文字化版本，區分 Current Verified 與 Target / Desired。 |
 | `AI_AGENT_SKILL.md` | AI Agent 固定行為規則：Production 禁區、migration 禁區、env 禁區、安全檢查。 |
 | `PROJECT_HANDBOOK.md` | 新 Agent 第一天讀的專案手冊：用途、repo、deployment、database、storage、git flow、命名規範。 |
 | `EMERGENCY_RUNBOOK.md` | Production 出事時的救援流程：停止 deploy、restore、切換、驗證、重新開放。 |
@@ -52,6 +53,7 @@
 - `docs/RESTORE_SCRIPT_DESIGN.md`
 - `docs/DR_TEST_PHASE2_READONLY_REPORT_2026-06-25.md`
 - `docs/DR_TEST_PHASE3_EXECUTION_PROPOSAL_2026-06-25.md`
+- `docs/DR_TEST_TARGET_ARCHITECTURE_V2.md`
 - `SKILL-SKY-SHOPPING-DR-RESTORE.md`
 - `SKILL-SKY-SHOPPING-PRODUCTION-SAFETY.md`
 - `SKILL-STAGING-TO-PRODUCTION.md`
