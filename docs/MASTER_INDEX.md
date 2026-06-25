@@ -42,7 +42,8 @@
 - Production 不得被 AI 直接修改、migration、測試寫入。
 - Staging / Development 可用於測試，但必須先確認 env 指向正確 project。
 - DR-Test 目前候選為 `kyzwwotjunouzegyfqgz`，尚未清理、尚未改名、尚未 restore。
-- `kyzwwotjunouzegyfqgz` 可作 Restore Drill 候選，但 Auth Users / Edge Functions / Policies 仍待補查。
+- `kyzwwotjunouzegyfqgz` Phase 2 read-only 已完成：Auth Users、Edge Functions、Policies / RLS、Storage Policies、Extensions 已盤點。
+- `DR_TEST_TARGET_ARCHITECTURE_V2.md` 是 Target / Desired，不代表目前 DB 已存在。
 - Backup 是備份用途，不是開發或 staging，不接前台流量。
 
 ## 重要補充文件

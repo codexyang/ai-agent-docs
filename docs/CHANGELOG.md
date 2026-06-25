@@ -50,9 +50,6 @@
 
 ## 待補
 
-- Auth Users count
-- Edge Functions list
-- Policies / RLS list
 - Production full database map
 - Backup project map
 - Restore Drill 第一次實測報告
