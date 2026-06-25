@@ -36,6 +36,9 @@
 - 新增 Restore Baseline Manifest。
 - 新增 DR Restore Handoff。
 - 新增本組 enterprise docs。
+- 新增 `DR_TEST_ACCEPTANCE_CHECKLIST.md` 作為每次 Restore Drill 固定驗收標準。
+- 新增 `RESTORE_SCRIPT_DESIGN.md` 作為 Restore script 設計文件；目前只設計，不執行。
+- 明確定義 Phase 3 進入門檻：Project Identity、Schema、Tables、Storage、Auth Users、Edge Functions、Policies/RLS、Storage Policies、Extensions、Vercel References、GitHub References、Acceptance Checklist、Restore Script 全部 PASS/完成後，才可真正改造 DR-Test。
 
 ### Merchant / Enterprise V2
 
@@ -50,4 +53,3 @@
 - Production full database map
 - Backup project map
 - Restore Drill 第一次實測報告
-

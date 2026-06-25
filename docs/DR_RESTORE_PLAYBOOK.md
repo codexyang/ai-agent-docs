@@ -43,15 +43,56 @@ PASS / FAIL Report
 
 在 DR-Test 清理或 restore 前，必須完成：
 
+- Project Identity PASS
+- Schema PASS
+- Tables PASS
+- Storage PASS
 - Auth Users count
 - Edge Functions list
 - Policies / RLS list
+- Storage Policies list
+- Extensions list
 - Storage object list
 - 現況 DB dump
 - Vercel env 再確認未引用 DR-Test ref
+- GitHub references 再確認
+- `docs/DR_TEST_ACCEPTANCE_CHECKLIST.md` 完成
+- `docs/RESTORE_SCRIPT_DESIGN.md` 完成
 - 使用者批准
 
+## 4.1 Phase 3 進入門檻
+
+只有以下項目全部 PASS / 完成後，才可開始真正改造 DR-Test：
+
+| 項目 | 狀態 |
+|---|---|
+| Project Identity | PENDING |
+| Schema | PENDING |
+| Tables | PENDING |
+| Storage | PENDING |
+| Auth Users | PENDING |
+| Edge Functions | PENDING |
+| Policies / RLS | PENDING |
+| Storage Policies | PENDING |
+| Extensions | PENDING |
+| Vercel References | PENDING |
+| GitHub References | PENDING |
+| Acceptance Checklist | 完成：`docs/DR_TEST_ACCEPTANCE_CHECKLIST.md` |
+| Restore Script | 完成設計：`docs/RESTORE_SCRIPT_DESIGN.md` |
+
+未達成前禁止：
+
+- 清空 Database
+- 刪除 Bucket
+- 修改 API Keys
+- 重新建立 Schema
+- 大量 Migration
+- 改 Project name
+- 執行真實 restore
+
 ## 5. Restore Drill Acceptance Test
+
+詳細固定驗收標準見 `docs/DR_TEST_ACCEPTANCE_CHECKLIST.md`。
 
 必測：
 
@@ -115,4 +156,3 @@ PASS / FAIL:
 Risks:
 Next Action:
 ```
-

@@ -10,3 +10,8 @@
 
 任何 AI Agent 不應跳過 `MASTER_INDEX.md` 直接修改 code、database、env 或 deployment。
 
+DR-Test / Restore Drill 任務另需閱讀：
+
+- `DR_RESTORE_PLAYBOOK.md`
+- `DR_TEST_ACCEPTANCE_CHECKLIST.md`
+- `RESTORE_SCRIPT_DESIGN.md`
