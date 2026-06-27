@@ -5,7 +5,7 @@ Last updated: 2026-06-25
 
 ## Current
 
-Resolve DR-Test database connection for `kyzwwotjunouzegyfqgz`.
+Await user approval for next DR-Test action after completed pre-clean baseline.
 
 ## Priority
 
@@ -17,15 +17,13 @@ Codex
 
 ## Blocked
 
-Two user-provided session pooler URLs were each tested once. Both failed to return a PostgreSQL identity response and did not produce a clear password-authentication error. Stop here until the connection method/password is confirmed.
+Dashboard SQL read-only verification is PASS. Transaction Pooler identity check is PASS. Pre-clean dump, SHA256, Storage manifest, and report are complete.
 
 ## Next
 
-1. Confirm whether Supabase dashboard SQL Editor can run `select current_database(), current_user;`.
-2. If dashboard works, reset or confirm the DR-Test DB password.
-3. Provide one confirmed connection method: direct, session pooler, or transaction pooler.
-4. Re-run read-only identity check.
-5. If PASS, generate pre-clean dump, SHA256, Storage manifest, and pre-clean report.
+1. Wait for explicit user approval.
+2. If approved, run cleanup/restore drill according to `06_DR_RESTORE_PLAYBOOK.md`.
+3. If not approved, keep baseline archived and stop.
 
 ## Scope
 

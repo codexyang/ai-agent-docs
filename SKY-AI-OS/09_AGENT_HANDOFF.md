@@ -30,20 +30,32 @@ The user wants a clear, reusable operating system for all AI Agents working on S
 
 Resolve DR-Test connection path/password. Two session pooler URLs provided by the user were each tested once on 2026-06-25; neither returned a DB identity response.
 
-Recommended next checks:
+Dashboard SQL Editor verification was completed on 2026-06-27:
 
-1. In Supabase Dashboard SQL Editor for `kyzwwotjunouzegyfqgz`, run:
-   - `select current_database(), current_user;`
-2. If dashboard SQL works, reset or confirm the DR-Test DB password.
-3. Use one confirmed connection method only.
+- DB identity: PASS
+- table metadata: PASS
+- storage bucket: PASS
+- storage objects: PASS
+- auth users: PASS
+- extensions: PASS
+- RLS policy metadata: PASS
 
-After connection PASS, perform:
+External Transaction Pooler connection was verified on 2026-06-27 and Phase 3 pre-clean baseline completed.
 
-1. Read-only identity check.
-2. `pg_dump`.
-3. SHA256 checksum.
-4. Storage manifest.
-5. Pre-clean report.
+Completed baseline files:
+
+1. `dr-test-backups/20260627_184133/kyzwwotjunouzegyfqgz_preclean.dump`
+2. `dr-test-backups/20260627_184133/kyzwwotjunouzegyfqgz_preclean.dump.sha256`
+3. `dr-test-backups/20260627_184133/storage_buckets_manifest.tsv`
+4. `dr-test-backups/20260627_184133/storage_objects_manifest.tsv`
+5. `dr-test-backups/20260627_184133/storage_manifest.sha256`
+6. `dr-test-backups/20260627_184133/PRE_CLEAN_REPORT.md`
+
+Next step requires explicit user approval:
+
+- cleanup test data, or
+- run Restore Drill, or
+- keep DR-Test as-is and only archive baseline.
 
 Only after the user approves should cleanup proceed. Project has already been renamed in dashboard to `DR-test of sky-shopping`.
 
