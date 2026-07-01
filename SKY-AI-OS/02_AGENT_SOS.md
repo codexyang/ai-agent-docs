@@ -36,6 +36,34 @@ Rules:
 - Before merging or deploying, produce a Production Diff Report.
 - Do not use `DROP`, `DELETE`, `ALTER`, or equivalent destructive operations to remove existing Production-compatible structure without approval.
 
+## Production Baseline Lock
+
+This is the highest-priority workflow rule.
+
+Every Agent must sync and compare current Production before work begins. Required startup output:
+
+1. Production Commit
+2. Working Branch Commit
+3. Diff Summary
+4. Additive: Yes / No
+5. Production Impact: Yes / No
+
+Forbidden:
+
+- Building from stale branches.
+- Using old Dev to overwrite Production.
+- Rebuilding already-existing Production features because they are missing in a non-Production branch.
+- Changing UI/API/Schema before Production comparison.
+
+## Environment Lock
+
+- Production: live operation, AI modification forbidden, official baseline.
+- Backup: formal backup, sync only, no development.
+- DR-Test `kyzwwotjunouzegyfqgz`: Restore Drill / disaster recovery validation only.
+- Development: daily development, Enterprise V2, feature validation.
+
+Agents must not redefine these roles.
+
 ## Human Execution Gate
 
 If any of the following cannot complete in the AI environment after one attempt:

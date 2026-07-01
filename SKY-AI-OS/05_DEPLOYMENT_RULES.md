@@ -38,6 +38,14 @@ Not required:
 
 Production is the single source of truth for functionality, routes, UI, and APIs.
 
+Before any work starts, every Agent must produce:
+
+1. Production Commit
+2. Working Branch Commit
+3. Diff Summary
+4. Additive: Yes / No
+5. Production Impact: Yes / No
+
 Required before deploy:
 
 - Production DB backup confirmed.
@@ -66,7 +74,22 @@ Rollback must identify:
 - Secret changes without documented owner approval.
 - Dev / Staging-only feature removals that make them diverge from Production baseline.
 - Destructive `DROP`, `DELETE`, or `ALTER` to existing Production-compatible structure without approval.
+- Starting Enterprise V2 from an old branch.
+- Using old Development state to overwrite Production.
+- Rebuilding Production-existing functionality because it is missing in Dev/Staging.
+- Modifying UI/API/Schema without Production comparison.
 
 ## Human Execution Gate
 
 If `npx prisma generate`, `prisma migrate`, `npm run build`, or a Node.js / Prisma Engine command fails due the AI sandbox, retry at most once. If still blocked, stop and request human execution. Do not push, deploy, migrate, or modify Production while waiting.
+
+## Recovery-First Deployment Strategy
+
+Do not prioritize DB Push.
+
+Before major development or integration:
+
+1. Production → Backup automatic sync must be designed and verified.
+2. Backup → DR-Test Restore Drill must pass.
+3. One-click recovery must be validated.
+4. Logistics integration and Enterprise V2 can proceed only after recovery foundation is stable.

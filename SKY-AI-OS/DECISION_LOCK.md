@@ -18,3 +18,10 @@ VERSION: SAOS v2.1
 | Enterprise V2 additive-only development | YES | New work must add capabilities without removing Production behavior unless approved. |
 | Production Diff Report before merge/deploy | YES | Required before promotion. |
 | Human Execution Gate for Prisma/build | YES | If sandbox fails once, stop and request human command result. |
+| Production Baseline Lock | YES | Highest priority: every task starts by syncing/comparing current Production. |
+| No old-branch architecture | YES | Forbidden to build new architecture from stale branches. |
+| No old Dev overwrite | YES | Forbidden to overwrite Production from old Dev. |
+| DR-Test role lock | YES | `kyzwwotjunouzegyfqgz` is Restore Drill only, not Staging. |
+| Environment role changes | YES | No Agent may redefine Production / Backup / DR-Test / Development roles. |
+| Codex DB Push | YES | Not recommended; do not continue DB Push workflow. |
+| Recovery-first roadmap | YES | Production→Backup sync, Backup→DR-Test drill, one-click recovery before Enterprise V2/logistics. |

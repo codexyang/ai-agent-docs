@@ -85,3 +85,29 @@ Reason:
 - Enterprise V2 development is additive by default.
 - Production Diff Report is required before merge/deploy.
 - Human Execution Gate: if Prisma/build/Node engine commands fail in AI sandbox after one attempt, stop and ask human to run the command.
+
+## Production Baseline Lock
+
+Highest priority:
+
+- Sync and compare current Production before starting work.
+- Output Production Commit, Working Branch Commit, Diff Summary, Additive Yes/No, Production Impact Yes/No.
+- Do not build from stale branches.
+- Do not overwrite Production from old Dev.
+- Do not rebuild Production-existing features due non-Production branch gaps.
+- Do not modify UI/API/Schema before Production comparison.
+
+## Environment Lock
+
+- Production: official baseline, no AI modification.
+- Backup: formal backup, sync only.
+- DR-Test `kyzwwotjunouzegyfqgz`: Restore Drill only.
+- Development: daily development / Enterprise V2.
+
+## Recovery-first Roadmap
+
+- Do not continue DB Push as next work.
+- First complete Production → Backup automatic sync.
+- Then complete Backup → DR-Test Restore Drill.
+- Then confirm one-click recovery.
+- Only after that continue Logistics integration and Enterprise V2.

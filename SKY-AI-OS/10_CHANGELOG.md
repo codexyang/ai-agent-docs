@@ -38,3 +38,14 @@
   - Production as Single Source of Truth
   - Enterprise V2 additive-only development
   - Production Diff Report required before merge/deploy
+- Added Production Baseline Lock as highest-priority rule:
+  - Production is the only official version
+  - every Agent must sync/compare Production before work
+  - required startup output: Production Commit, Working Branch Commit, Diff Summary, Additive, Production Impact
+  - locked environment roles for Production / Backup / DR-Test / Development
+- Added Recovery-first roadmap:
+  - Codex should not continue DB Push workflow
+  - complete Production → Backup automatic sync
+  - complete Backup → DR-Test Restore Drill
+  - validate one-click recovery
+  - only then continue Logistics integration and Enterprise V2

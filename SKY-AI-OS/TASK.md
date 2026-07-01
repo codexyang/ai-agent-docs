@@ -5,7 +5,7 @@ Last updated: 2026-06-25
 
 ## Current
 
-Establish formal SKY Shopping Backup Baseline before first real Restore Drill.
+Establish recovery-first foundation before Enterprise V2 or logistics integration.
 
 ## Priority
 
@@ -17,14 +17,14 @@ Codex
 
 ## Blocked
 
-Formal Backup Baseline inventory is FAIL because no verified SKY Shopping Production / Backup DB dump or Storage payload backup exists in the workspace. Existing DR-Test pre-clean dump is not a formal Production Backup and must not be used as `Backup → DR-Test` proof.
+Codex should not continue DB Push. Formal Backup Baseline inventory is FAIL because no verified SKY Shopping Production / Backup DB dump or Storage payload backup exists in the workspace. Existing DR-Test pre-clean dump is not a formal Production Backup and must not be used as `Backup → DR-Test` proof.
 
 ## Next
 
-1. Provide or create a formal SKY Shopping Production / Backup DB dump.
-2. Provide Storage backup payload and manifest for `product-images`.
-3. Pair backup with matching Prisma schema / migrations.
-4. Only then run first real `Backup → DR-Test` Restore Drill.
+1. Complete Production → Backup automatic sync.
+2. Complete Backup → DR-Test Restore Drill.
+3. Confirm one-click recovery workflow.
+4. Only then continue Logistics integration and Enterprise V2.
 
 ## Scope
 
@@ -38,3 +38,13 @@ DR-Test only.
 - Development
 - DROP / DELETE / ALTER / TRUNCATE
 - Migration
+
+## Required Startup Baseline Report
+
+Before any future implementation task, output:
+
+1. Production Commit
+2. Working Branch Commit
+3. Diff Summary
+4. Additive: Yes / No
+5. Production Impact: Yes / No
