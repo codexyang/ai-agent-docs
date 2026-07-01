@@ -30,3 +30,6 @@
   - `DATABASE_MAP.md`
   - `RESTORE_CHECKLIST.md`
   - status WARNING due Edge Functions / external API reference proof limitations
+- Added formal Backup Baseline inventory:
+  - `BACKUP_BASELINE_INVENTORY.md`
+  - status FAIL because no formal SKY Shopping Production / Backup DB dump or Storage payload backup was found

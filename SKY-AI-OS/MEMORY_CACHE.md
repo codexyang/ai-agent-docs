@@ -63,3 +63,17 @@ WARNING items:
 ## Production
 
 Safe: no Production DB operation in this task.
+
+## Formal Backup Baseline
+
+Status: FAIL
+
+File:
+
+- `SKY-AI-OS/BACKUP_BASELINE_INVENTORY.md`
+
+Reason:
+
+- No verified formal SKY Shopping Production / Backup DB dump found.
+- No formal Storage payload backup found.
+- Existing `dr-test-backups/20260627_184133/kyzwwotjunouzegyfqgz_preclean.dump` is DR-Test self-baseline only.

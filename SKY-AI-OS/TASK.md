@@ -5,7 +5,7 @@ Last updated: 2026-06-25
 
 ## Current
 
-Resolve / accept DR-Test Phase 1 WARNING items, then await user approval for cleanup or Restore Drill.
+Establish formal SKY Shopping Backup Baseline before first real Restore Drill.
 
 ## Priority
 
@@ -17,13 +17,14 @@ Codex
 
 ## Blocked
 
-Dashboard SQL read-only verification is PASS. Transaction Pooler identity check is PASS. Pre-clean dump, SHA256, Storage manifest, and report are complete. DR-Test Phase 1 is WARNING because Edge Functions and external API key references cannot be fully proven from current CLI permissions/tools.
+Formal Backup Baseline inventory is FAIL because no verified SKY Shopping Production / Backup DB dump or Storage payload backup exists in the workspace. Existing DR-Test pre-clean dump is not a formal Production Backup and must not be used as `Backup → DR-Test` proof.
 
 ## Next
 
-1. User decides whether to accept WARNING items or provide Supabase access token / external dashboard proof.
-2. If approved, run cleanup/restore drill according to `06_DR_RESTORE_PLAYBOOK.md`.
-3. If not approved, keep baseline archived and stop.
+1. Provide or create a formal SKY Shopping Production / Backup DB dump.
+2. Provide Storage backup payload and manifest for `product-images`.
+3. Pair backup with matching Prisma schema / migrations.
+4. Only then run first real `Backup → DR-Test` Restore Drill.
 
 ## Scope
 

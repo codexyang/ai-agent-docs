@@ -62,6 +62,27 @@ Database changes performed: none
 
 - Resolve or explicitly accept DR-Test Phase 1 WARNING items before destructive cleanup / restore overwrite.
 - Get explicit approval before any cleanup, restore drill, or destructive operation.
+- Establish formal SKY Shopping Backup Baseline before first real `Backup → DR-Test` Restore Drill.
+
+## Formal Backup Baseline Inventory on 2026-07-02
+
+- Status: FAIL
+- Reason: no verified formal SKY Shopping Production / Backup DB dump found in workspace.
+- Available:
+  - DR-Test pre-clean dump: yes, but not formal Production Backup.
+  - DR-Test storage metadata manifest: yes, metadata only.
+  - Prisma schema: yes.
+  - Prisma migrations: partial local history.
+  - Logistics logical backup report: yes, logistics-only scope.
+- Missing:
+  - formal SKY Shopping Production / Backup DB dump
+  - formal dump SHA256
+  - formal Storage payload backup
+  - Storage payload checksum
+  - backup timestamp and source project ref
+  - migration/schema version paired with the backup
+- Report:
+  - `SKY-AI-OS/BACKUP_BASELINE_INVENTORY.md`
 
 ## DR-Test Phase 1 Read-only Verification on 2026-07-01
 
