@@ -22,3 +22,11 @@ Target: 300 tokens unless the user asks for detail.
 - Database touched.
 - Handoff.
 
+## Human Execution Gate Output
+
+When blocked by Prisma / build / Node engine limitations, output only:
+
+- failed command
+- exact command for human to run
+- expected result to paste back
+- what remains blocked until result is returned

@@ -36,12 +36,15 @@ Not required:
 
 ## Production
 
+Production is the single source of truth for functionality, routes, UI, and APIs.
+
 Required before deploy:
 
 - Production DB backup confirmed.
 - Rollback tag created.
 - Dev validation passed.
 - Staging validation passed.
+- Production Diff Report completed.
 - Mobile and desktop validation.
 - Login, product page, cart, checkout, order, order items, logistics bridge validation.
 - Production approval.
@@ -61,4 +64,9 @@ Rollback must identify:
 - Production `db push`.
 - Production migration without explicit approved migration plan.
 - Secret changes without documented owner approval.
+- Dev / Staging-only feature removals that make them diverge from Production baseline.
+- Destructive `DROP`, `DELETE`, or `ALTER` to existing Production-compatible structure without approval.
 
+## Human Execution Gate
+
+If `npx prisma generate`, `prisma migrate`, `npm run build`, or a Node.js / Prisma Engine command fails due the AI sandbox, retry at most once. If still blocked, stop and request human execution. Do not push, deploy, migrate, or modify Production while waiting.

@@ -33,3 +33,8 @@
 - Added formal Backup Baseline inventory:
   - `BACKUP_BASELINE_INVENTORY.md`
   - status FAIL because no formal SKY Shopping Production / Backup DB dump or Storage payload backup was found
+- Added long-term rules:
+  - Human Execution Gate for Prisma / build / Node engine commands
+  - Production as Single Source of Truth
+  - Enterprise V2 additive-only development
+  - Production Diff Report required before merge/deploy

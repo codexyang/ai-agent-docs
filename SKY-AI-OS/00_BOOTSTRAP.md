@@ -27,6 +27,37 @@ MISSION
 - Do not re-explore Database unless the task requires it.
 - Do not repeat project background.
 - Do not write secrets into Git, docs, reports, or chat output.
+- Do not treat Dev / Staging as source of truth over Production.
+- Do not use destructive schema/data operations without explicit approval.
+
+## SINGLE SOURCE OF TRUTH
+
+Production is the single source of truth.
+
+- Production features, routes, UI, and APIs are the baseline.
+- Dev / Staging must not independently add or remove formal Production functionality.
+- Enterprise V2 development must be additive.
+- Every change must compare against Production and produce a Diff Report.
+- Without approval, do not use `DROP`, `DELETE`, or `ALTER` to break existing structure.
+
+## HUMAN EXECUTION GATE
+
+If the task requires any of these commands and the AI sandbox cannot complete them once:
+
+- `npx prisma generate`
+- `prisma migrate`
+- `npm run build`
+- any local Node.js / Prisma Engine dependent command
+
+The Agent must stop immediately and output the exact commands for the human to run locally.
+
+Until the human returns results:
+
+- no DB Push
+- no Migration
+- no Deploy
+- no Git Push
+- no Production modification
 
 ## IF NEEDED
 

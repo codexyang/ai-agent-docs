@@ -14,4 +14,7 @@ VERSION: SAOS v2.1
 | Secrets in Git/docs/chat output | YES | Forbidden. |
 | Full repository scan at Agent startup | YES | Forbidden. |
 | Brand/Supplier/Product schema destructive changes | WAIT | Do not DROP without explicit reviewed migration. |
-
+| Production as Single Source of Truth | YES | Production routes/UI/API/features are authoritative baseline. |
+| Enterprise V2 additive-only development | YES | New work must add capabilities without removing Production behavior unless approved. |
+| Production Diff Report before merge/deploy | YES | Required before promotion. |
+| Human Execution Gate for Prisma/build | YES | If sandbox fails once, stop and request human command result. |

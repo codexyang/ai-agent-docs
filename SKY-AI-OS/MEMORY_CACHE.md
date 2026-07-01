@@ -77,3 +77,11 @@ Reason:
 - No verified formal SKY Shopping Production / Backup DB dump found.
 - No formal Storage payload backup found.
 - Existing `dr-test-backups/20260627_184133/kyzwwotjunouzegyfqgz_preclean.dump` is DR-Test self-baseline only.
+
+## Long-term Rules
+
+- Production is the single source of truth for routes, UI, APIs, and features.
+- Dev / Staging cannot independently remove or redefine Production behavior.
+- Enterprise V2 development is additive by default.
+- Production Diff Report is required before merge/deploy.
+- Human Execution Gate: if Prisma/build/Node engine commands fail in AI sandbox after one attempt, stop and ask human to run the command.
