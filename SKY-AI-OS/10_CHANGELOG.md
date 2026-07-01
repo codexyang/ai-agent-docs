@@ -25,3 +25,8 @@
   - Storage manifest PASS
   - pre-clean report PASS
   - no DB writes / no Production access
+- Completed DR-Test Phase 1 read-only verification report:
+  - `DR_TEST_REPORT.md`
+  - `DATABASE_MAP.md`
+  - `RESTORE_CHECKLIST.md`
+  - status WARNING due Edge Functions / external API reference proof limitations

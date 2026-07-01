@@ -60,7 +60,33 @@ Database changes performed: none
 
 ## Pending
 
+- Resolve or explicitly accept DR-Test Phase 1 WARNING items before destructive cleanup / restore overwrite.
 - Get explicit approval before any cleanup, restore drill, or destructive operation.
+
+## DR-Test Phase 1 Read-only Verification on 2026-07-01
+
+- Status: WARNING
+- Project Identity: PASS
+- Database Version: PASS
+- Extensions: PASS
+- Schemas: PASS
+- Tables: PASS
+- Views: PASS
+- Functions: PASS
+- Triggers: PASS
+- Policies / RLS: PASS
+- Auth Users: PASS
+- Storage Buckets: PASS
+- Storage Objects: PASS
+- Cron: PASS
+- Webhook: PASS
+- Vercel env reference check: PASS for `sky-shopping-v1`, `sky-logistics-system`, `pegasustour-v1-5`
+- Edge Functions: WARNING — Supabase CLI requires access token for current proof
+- API Keys Reference: WARNING — Vercel/local refs checked; third-party dashboards cannot be independently proven from current tools
+- Report files:
+  - `SKY-AI-OS/DR_TEST_REPORT.md`
+  - `SKY-AI-OS/DATABASE_MAP.md`
+  - `SKY-AI-OS/RESTORE_CHECKLIST.md`
 
 ## Phase 3 Pre-clean Baseline on 2026-06-27
 

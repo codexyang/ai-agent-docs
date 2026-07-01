@@ -5,7 +5,7 @@ Last updated: 2026-06-25
 
 ## Current
 
-Await user approval for next DR-Test action after completed pre-clean baseline.
+Resolve / accept DR-Test Phase 1 WARNING items, then await user approval for cleanup or Restore Drill.
 
 ## Priority
 
@@ -17,11 +17,11 @@ Codex
 
 ## Blocked
 
-Dashboard SQL read-only verification is PASS. Transaction Pooler identity check is PASS. Pre-clean dump, SHA256, Storage manifest, and report are complete.
+Dashboard SQL read-only verification is PASS. Transaction Pooler identity check is PASS. Pre-clean dump, SHA256, Storage manifest, and report are complete. DR-Test Phase 1 is WARNING because Edge Functions and external API key references cannot be fully proven from current CLI permissions/tools.
 
 ## Next
 
-1. Wait for explicit user approval.
+1. User decides whether to accept WARNING items or provide Supabase access token / external dashboard proof.
 2. If approved, run cleanup/restore drill according to `06_DR_RESTORE_PLAYBOOK.md`.
 3. If not approved, keep baseline archived and stop.
 

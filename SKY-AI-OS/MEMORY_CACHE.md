@@ -45,6 +45,21 @@ Phase 3 pre-clean baseline is complete. Wait for explicit user approval before c
 - `dr-test-backups/20260627_184133/storage_manifest.sha256`
 - `dr-test-backups/20260627_184133/PRE_CLEAN_REPORT.md`
 
+## DR-Test Phase 1 Report
+
+Status: WARNING
+
+Files:
+
+- `SKY-AI-OS/DR_TEST_REPORT.md`
+- `SKY-AI-OS/DATABASE_MAP.md`
+- `SKY-AI-OS/RESTORE_CHECKLIST.md`
+
+WARNING items:
+
+- Edge Functions cannot be fully proven via CLI without Supabase access token.
+- External API key/service role references cannot be independently proven outside Vercel/local files with current tools.
+
 ## Production
 
 Safe: no Production DB operation in this task.
