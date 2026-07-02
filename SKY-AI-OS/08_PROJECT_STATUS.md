@@ -7,12 +7,33 @@ Last updated: 2026-06-25
 
 Build a stable AI Operating System knowledge base and prepare DR-Test / Restore Drill without risking Production.
 
+## Current Project Plan — Supersedes Older DR-Test Assumptions
+
+商城：
+
+| Role | Project Ref | Rule |
+| --- | --- | --- |
+| Production | `yafykwpivreqexbcilfm` | Official live baseline; do not modify. |
+| Backup | `iynhnfquzvzkvyvaitoh` | Formal backup; sync only; no development. |
+| Development | `rvrdlofcaerzxktqpbjk` | Development and schema verification only. |
+
+物流：
+
+| Role | Project Ref | Rule |
+| --- | --- | --- |
+| Production-like | `kyzwwotjunouzegyfqgz` | Read-only / production-like logistics reference; not Restore Drill. |
+| Backup | `vwarhnoewfjugwkrmpkm` | Logistics backup. |
+
+DR-Test：
+
+- Do not use any existing project that contains formal or real data.
+- A new blank project must be created for Restore Drill.
+
 ## Current DR-Test Status
 
-Project Ref: `kyzwwotjunouzegyfqgz`  
-Purpose: SKY Shopping DR-Test / Restore Drill candidate  
-Project name observed: `DR-test of sky-shopping`  
-Status: Phase 3 pre-clean baseline completed; waiting for user approval before cleanup / restore drill  
+Project Ref: pending new blank project  
+Purpose: Restore Drill only  
+Status: New clean DR-Test project not yet created  
 Database changes performed: none
 
 ## Completed
@@ -60,6 +81,10 @@ Database changes performed: none
 
 ## Pending
 
+- Create a new blank DR-Test project for Restore Drill.
+- Complete Shopping Production → Backup automatic sync.
+- Complete Logistics Production-like → Backup sync.
+- Validate Backup → new DR-Test restore.
 - Resolve or explicitly accept DR-Test Phase 1 WARNING items before destructive cleanup / restore overwrite.
 - Get explicit approval before any cleanup, restore drill, or destructive operation.
 - Establish formal SKY Shopping Backup Baseline before first real `Backup → DR-Test` Restore Drill.
@@ -133,4 +158,4 @@ Database changes performed: none
 
 ## Blockers
 
-No current blocker for Phase 3 baseline. Cleanup / restore drill is intentionally blocked until explicit user approval.
+Restore Drill cannot start until a new blank DR-Test project exists and formal Backup Baselines are complete.

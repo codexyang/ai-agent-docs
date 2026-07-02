@@ -12,10 +12,17 @@ Agent level: `L0` for DB, `L1` for docs
 
 ## Database
 
-Target: DR-Test  
-Project Ref: `kyzwwotjunouzegyfqgz`  
-Project Name observed: `DR-test of sky-shopping`  
-Supabase URL: `https://kyzwwotjunouzegyfqgz.supabase.co`
+Current working target: Development only  
+Development Project Ref: `rvrdlofcaerzxktqpbjk`  
+
+Current project plan:
+
+- Shopping Production: `yafykwpivreqexbcilfm`
+- Shopping Backup: `iynhnfquzvzkvyvaitoh`
+- Shopping Development: `rvrdlofcaerzxktqpbjk`
+- Logistics Production-like: `kyzwwotjunouzegyfqgz`
+- Logistics Backup: `vwarhnoewfjugwkrmpkm`
+- DR-Test: new blank project required; not yet created
 
 ## Current Checkpoint
 
@@ -34,7 +41,7 @@ SAOS v2.1 added. DR-Test Dashboard SQL read-only verification completed on 2026-
 
 ## Blocker
 
-Phase 3 pre-clean baseline is complete. Wait for explicit user approval before cleanup or Restore Drill.
+Restore Drill cannot start until a new blank DR-Test project exists and formal Backup Baselines are complete.
 
 ## Phase 3 Baseline Files
 
@@ -101,7 +108,8 @@ Highest priority:
 
 - Production: official baseline, no AI modification.
 - Backup: formal backup, sync only.
-- DR-Test `kyzwwotjunouzegyfqgz`: Restore Drill only.
+- Logistics Production-like `kyzwwotjunouzegyfqgz`: read-only, not DR-Test.
+- DR-Test: must be a new blank isolated project.
 - Development: daily development / Enterprise V2.
 
 ## Recovery-first Roadmap
@@ -111,3 +119,9 @@ Highest priority:
 - Then complete Backup → DR-Test Restore Drill.
 - Then confirm one-click recovery.
 - Only after that continue Logistics integration and Enterprise V2.
+
+## Current DR Plan
+
+- See `SKY-AI-OS/DISASTER_RECOVERY_PLAN.md`.
+- Shopping flow: Production `yafykwpivreqexbcilfm` → Backup `iynhnfquzvzkvyvaitoh` → new blank DR-Test.
+- Logistics flow: Production-like `kyzwwotjunouzegyfqgz` → Backup `vwarhnoewfjugwkrmpkm` → new blank DR-Test.

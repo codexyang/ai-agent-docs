@@ -93,3 +93,25 @@ Before major development or integration:
 2. Backup → DR-Test Restore Drill must pass.
 3. One-click recovery must be validated.
 4. Logistics integration and Enterprise V2 can proceed only after recovery foundation is stable.
+
+## Current Environment Roles
+
+商城：
+
+| Role | Project Ref | Rule |
+| --- | --- | --- |
+| Production | `yafykwpivreqexbcilfm` | Official baseline; no AI modification. |
+| Backup | `iynhnfquzvzkvyvaitoh` | Formal backup; sync only. |
+| Development | `rvrdlofcaerzxktqpbjk` | Development and schema verification only. |
+
+物流：
+
+| Role | Project Ref | Rule |
+| --- | --- | --- |
+| Production-like | `kyzwwotjunouzegyfqgz` | Read-only; not Restore Drill. |
+| Backup | `vwarhnoewfjugwkrmpkm` | Logistics backup. |
+
+DR-Test:
+
+- Must be a new blank project.
+- Must not reuse Production, Backup, Development, or Logistics Production-like projects.

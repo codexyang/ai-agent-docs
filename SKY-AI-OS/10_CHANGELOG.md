@@ -49,3 +49,11 @@
   - complete Backup → DR-Test Restore Drill
   - validate one-click recovery
   - only then continue Logistics integration and Enterprise V2
+- Updated current project roles and DR plan:
+  - Shopping Production `yafykwpivreqexbcilfm`
+  - Shopping Backup `iynhnfquzvzkvyvaitoh`
+  - Shopping Development `rvrdlofcaerzxktqpbjk`
+  - Logistics Production-like `kyzwwotjunouzegyfqgz`
+  - Logistics Backup `vwarhnoewfjugwkrmpkm`
+  - DR-Test must be a new blank project
+  - added `DISASTER_RECOVERY_PLAN.md`

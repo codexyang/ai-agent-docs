@@ -5,7 +5,7 @@ Last updated: 2026-06-25
 
 ## Current
 
-Establish recovery-first foundation before Enterprise V2 or logistics integration.
+Build complete Disaster Recovery plan based on current actual project roles.
 
 ## Priority
 
@@ -17,7 +17,7 @@ Codex
 
 ## Blocked
 
-Codex should not continue DB Push. Formal Backup Baseline inventory is FAIL because no verified SKY Shopping Production / Backup DB dump or Storage payload backup exists in the workspace. Existing DR-Test pre-clean dump is not a formal Production Backup and must not be used as `Backup → DR-Test` proof.
+Codex should not continue DB Push. DR-Test must be a new blank project. Existing `kyzwwotjunouzegyfqgz` is Logistics Production-like and must not be used as Restore Drill target.
 
 ## Next
 
@@ -25,6 +25,10 @@ Codex should not continue DB Push. Formal Backup Baseline inventory is FAIL beca
 2. Complete Backup → DR-Test Restore Drill.
 3. Confirm one-click recovery workflow.
 4. Only then continue Logistics integration and Enterprise V2.
+
+Reference:
+
+- `SKY-AI-OS/DISASTER_RECOVERY_PLAN.md`
 
 ## Scope
 

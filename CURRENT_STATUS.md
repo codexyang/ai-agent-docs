@@ -130,6 +130,37 @@ amy-player/approved-scripts/{id}.txt
 
 > 注意：既有 Baseline Backup 報告另記錄 `iynhnfquzvzkvywaitoh`（第 15 字為 `w`）為 Backup Ref，並稱 `...vaitoh` 為舊誤植。2026-06-25 後續決策改為先清點 `kyzwwotjunouzegyfqgz` 作為 DR-Test / Restore Drill 候選；目前只完成 read-only 盤點與 Manifest / Handoff，不代表已批准清理或改名。
 
+### 最新 Project 規劃（Supersedes older DR-Test assumptions，2026-07-02）
+
+以目前實際 env 與備份報告為準；不要再花時間修正舊 Project Ref。後續 Agent 以本段為準。
+
+商城：
+
+| Role | Project Ref | 規則 |
+|---|---|---|
+| Production | `yafykwpivreqexbcilfm` | 正式營運；禁止 AI 修改。 |
+| Backup | `iynhnfquzvzkvyvaitoh` | 正式備份；只同步、不開發。 |
+| Development | `rvrdlofcaerzxktqpbjk` | 開發與 schema 驗證。 |
+
+物流：
+
+| Role | Project Ref | 規則 |
+|---|---|---|
+| Production-like | `kyzwwotjunouzegyfqgz` | 只讀；不可作 Restore Drill。 |
+| Backup | `vwarhnoewfjugwkrmpkm` | 物流備份。 |
+
+DR-Test：
+
+- 不使用任何已有正式資料的 Project。
+- 待建立全新的空白 Project 專門做 Restore Drill。
+
+下一步優先順序：
+
+1. 商城 Production → Backup → Restore 驗證。
+2. 物流 Production-like → Backup → Restore 驗證。
+3. Restore Drill 使用新的乾淨 DR-Test Project。
+4. 產出完整 Restore SOP / RTO / RPO / Failback。
+
 **憑證紀錄規則：** Dev 與 Staging 的 `DATABASE_URL`、`DIRECT_URL`、anon key、service-role key 僅存放在專案本機的 `.env.local`／`.env.staging`（皆被 Git 忽略），不得寫入本文件、提交版本控制或貼入交接紀錄。新 Agent 只能讀取鍵名與 Project Ref，需連線時先確認目標環境。
 
 硬規則：
