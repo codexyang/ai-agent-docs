@@ -25,3 +25,5 @@ VERSION: SAOS v2.1
 | Environment role changes | YES | No Agent may redefine Production / Backup / DR-Test / Development roles. |
 | Codex DB Push | YES | Not recommended; do not continue DB Push workflow. |
 | Recovery-first roadmap | YES | Production→Backup sync, Backup→DR-Test drill, one-click recovery before Enterprise V2/logistics. |
+| Infrastructure Master Map authority | YES | `SKY_INFRASTRUCTURE_MASTER_MAP.md` is the only project/environment authority. |
+| MEMORY_CACHE project inference | YES | Forbidden; cache is not authoritative. |

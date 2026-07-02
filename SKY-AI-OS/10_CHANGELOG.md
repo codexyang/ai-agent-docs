@@ -57,3 +57,4 @@
   - Logistics Backup `vwarhnoewfjugwkrmpkm`
   - DR-Test must be a new blank project
   - added `DISASTER_RECOVERY_PLAN.md`
+- Added `SKY_INFRASTRUCTURE_MASTER_MAP.md` v1.0 as the only authoritative project/environment map.

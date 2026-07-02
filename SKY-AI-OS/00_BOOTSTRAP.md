@@ -12,13 +12,14 @@ MISSION
 ## READ ORDER
 
 1. `knowledge/CURRENT_STATE.md`
-2. `knowledge/DECISIONS.md`
-3. `03_DATABASE_MAP.md`
-4. `TASK.md`
-5. `08_PROJECT_STATUS.md`
-6. `09_AGENT_HANDOFF.md`
-7. `DECISION_LOCK.md`
-8. `MEMORY_CACHE.md`
+2. `SKY_INFRASTRUCTURE_MASTER_MAP.md`
+3. `knowledge/DECISIONS.md`
+4. `03_DATABASE_MAP.md`
+5. `TASK.md`
+6. `08_PROJECT_STATUS.md`
+7. `09_AGENT_HANDOFF.md`
+8. `DECISION_LOCK.md`
+9. `MEMORY_CACHE.md`
 
 ## PROHIBITED
 
@@ -29,6 +30,7 @@ MISSION
 - Do not write secrets into Git, docs, reports, or chat output.
 - Do not treat Dev / Staging as source of truth over Production.
 - Do not use destructive schema/data operations without explicit approval.
+- Do not infer project roles from `MEMORY_CACHE.md`; use `SKY_INFRASTRUCTURE_MASTER_MAP.md`.
 
 ## SINGLE SOURCE OF TRUTH
 

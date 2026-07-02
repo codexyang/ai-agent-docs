@@ -3,6 +3,14 @@
 VERSION: SAOS v2.1  
 Last updated: 2026-06-25
 
+## Authority Notice
+
+Do not infer project roles from this file.
+
+The authoritative source is:
+
+- `SKY-AI-OS/SKY_INFRASTRUCTURE_MASTER_MAP.md`
+
 ## Fast Facts
 
 Branch: `main`  

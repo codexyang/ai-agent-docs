@@ -12,6 +12,7 @@ This index is the first navigation point after `00_BOOTSTRAP.md`.
 | `00_BOOTSTRAP.md` | Mandatory startup rules for all Agents. |
 | `01_MASTER_INDEX.md` | This index. |
 | `02_AGENT_SOS.md` | Agent behavior and safety operating standard. |
+| `SKY_INFRASTRUCTURE_MASTER_MAP.md` | Authoritative project/environment map. Read before any Supabase/Vercel/DR work. |
 | `03_DATABASE_MAP.md` | Five-database topology and modification rules. |
 | `04_SYSTEM_ARCHITECTURE.md` | System architecture and relationships. |
 | `05_DEPLOYMENT_RULES.md` | Deployment, rollback, and promotion rules. |
@@ -57,4 +58,3 @@ This index is the first navigation point after `00_BOOTSTRAP.md`.
 ## Startup Rule
 
 Do not start from random repository exploration. Start from this index and follow the relevant path.
-
