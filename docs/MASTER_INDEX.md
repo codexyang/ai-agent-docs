@@ -58,3 +58,8 @@
 - `SKILL-SKY-SHOPPING-DR-RESTORE.md`
 - `SKILL-SKY-SHOPPING-PRODUCTION-SAFETY.md`
 - `SKILL-STAGING-TO-PRODUCTION.md`
+
+## 跨專案交接（所有品牌、所有 Agent）
+
+- `HANDOFF-REGISTRY.md` —— **所有專案 HANDOFF 的固定入口**，接手任何專案前先查這裡
+- `SKILL-HANDOFF.md` —— HANDOFF 的存放位置與必填內容規則（跨廠牌強制）
