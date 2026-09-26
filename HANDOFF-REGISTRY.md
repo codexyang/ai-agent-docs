@@ -5,7 +5,8 @@
 
 **規則見** `SKILL-HANDOFF.md`。新專案完成交接後**必須回來這裡登記**，否則視為交接未完成。
 
-**最後驗證**：2026-09-10（下表每一列都以 `git cat-file -e origin/<branch>:<path>` 實際確認過檔案存在於遠端）
+**最後驗證**：2026-09-10（下表每一列都以 `git cat-file -e origin/<branch>:<path>` 實際確認過檔案存在於遠端）；
+FB 每日自動貼文一列 2026-09-26 以 `gh api repos/codexyang/ai-study-lab/contents/HANDOFF-FB-AUTOMATION.md?ref=main` 讀回確認
 
 ---
 
@@ -20,6 +21,7 @@
 | **Travel Module（Pegasustour v1.5）** | `codexyang/ai-agent-docs`（本 repo） | `main` | `Pegasustour-v1.5-travel-module/Travel Module/NEW_MODULE_HANDOFF.md` | ✅ 在遠端 |
 | **SKY-AI-OS** | `codexyang/ai-agent-docs`（本 repo） | `main` | `SKY-AI-OS/09_AGENT_HANDOFF.md` | ✅ 在遠端 |
 | **AI STUDY LAB 線上教育平台** | `codexyang/ai-study-lab`（private） | `main` | `COURSE-CATALOG.md`（教材總覽） | ✅ 2026-09-10 建立 |
+| **FB 每日自動貼文（AI STUDY LAB／Pegasustour／pegasus2R）** | `codexyang/ai-study-lab`（private） | `main` | `HANDOFF-FB-AUTOMATION.md`（先讀開頭「⏩ 接手先看這裡」）＋ `CORE_RULES.md` | 🟡 2026-09-26 Production 已修復、排程已註冊；待 09-27 09:15 首次驗收。部署來源 tag `release-2026-09-26-fb-routes` |
 | **每日備份自動化（Guardian）** | 未進 repo | — | 本機 `C:\Users\USER\sky-backup\HANDOFF-GUARDIAN.md` | ⚠️ **只在本機，其他 Agent 讀不到**，待補 |
 
 ---
@@ -42,10 +44,10 @@ gh api repos/codexyang/<repo>/contents/<path> --jq '.content' | base64 -d
 2. **同一個 repo 有多個本機 worktree**，各自 checkout 不同分支。
    SKY Shopping 至少有 `sky-shopping-v1`／`-staging`／`-hardening`／`-parity`／`-release-docs`
    五個目錄，**內容目前相同**，但仍以 GitHub 上的版本為準，不要拿本機某個目錄當真相。
-3. **AI STUDY LAB 的平台程式碼還沒上 GitHub** —— repo 目前只有教材與治理文件。
-   Next.js app、產線腳本、影片母檔仍只在本機
-   `C:\Users\USER\Documents\Codex\ai-study-lab-release`（50 commits，**無 remote**）。
-   要動平台程式碼先確認來源。
+3. **AI STUDY LAB 的 `main` 只有教材與治理文件，平台程式碼在其他 branch**（2026-09-26 更正）。
+   現行 Production 的部署來源是 tag `release-2026-09-26-fb-routes`（branch `release/2026-09-26-fb-routes`）。
+   其他線（`feature/course-factory-lesson-01-v2`、`feature/quiz-certificates`）含未上線功能，**不要拿來部署**。
+   影片母檔與部分未 commit 的課程改動仍只在本機 `Documents\Codex\...\ai-agent-course`。要動平台程式碼先確認來源。
 4. **Pegasustour LINE Worker 不在 Desktop**，在
    `C:\Users\USER\Documents\Codex\2026-09-08\referenced-chatgpt-conversation-this-is-an\work\pegasustour-line-worker`。
    找不到就直接從 GitHub 讀，不要在硬碟裡亂翻。
