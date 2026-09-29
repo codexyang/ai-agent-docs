@@ -21,7 +21,7 @@ FB 每日自動貼文一列 2026-09-26 以 `gh api repos/codexyang/ai-study-lab/
 | **Travel Module（Pegasustour v1.5）** | `codexyang/ai-agent-docs`（本 repo） | `main` | `Pegasustour-v1.5-travel-module/Travel Module/NEW_MODULE_HANDOFF.md` | ✅ 在遠端 |
 | **SKY-AI-OS** | `codexyang/ai-agent-docs`（本 repo） | `main` | `SKY-AI-OS/09_AGENT_HANDOFF.md` | ✅ 在遠端 |
 | **AI STUDY LAB 線上教育平台** | `codexyang/ai-study-lab`（private） | `main` | `COURSE-CATALOG.md`（教材總覽） | ✅ 2026-09-10 建立 |
-| **FB 每日自動貼文（AI STUDY LAB／Pegasustour／pegasus2R）** | `codexyang/ai-study-lab`（private） | `main` | `HANDOFF-FB-AUTOMATION.md`（先讀開頭「⏩ 接手先看這裡」）＋ `CORE_RULES.md` | 🟡 2026-09-26 Production 已修復、排程已註冊；待 09-27 09:15 首次驗收。部署來源 tag `release-2026-09-26-fb-routes` |
+| **FB 每日自動貼文（AI STUDY LAB／Pegasustour／pegasus2R）** | `codexyang/ai-study-lab`（private） | `main` | `HANDOFF-FB-AUTOMATION.md`（先讀開頭「⏩ 接手先看這裡」）＋ `CORE_RULES.md` | 🟢 2026-09-29 發布鏈修通、4 帳號驗證、歷史債務 21/21（待回溯日期 9 篇）；Production `51e8142c`，部署來源 `release/2026-09-26-fb-routes` |
 | **每日備份自動化（Guardian）** | 未進 repo | — | 本機 `C:\Users\USER\sky-backup\HANDOFF-GUARDIAN.md` | ⚠️ **只在本機，其他 Agent 讀不到**，待補 |
 
 ---
