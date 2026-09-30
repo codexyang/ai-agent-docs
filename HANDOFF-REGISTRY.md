@@ -21,7 +21,7 @@ FB 每日自動貼文一列 2026-09-26 以 `gh api repos/codexyang/ai-study-lab/
 | **Travel Module（Pegasustour v1.5）** | `codexyang/ai-agent-docs`（本 repo） | `main` | `Pegasustour-v1.5-travel-module/Travel Module/NEW_MODULE_HANDOFF.md` | ✅ 在遠端 |
 | **SKY-AI-OS** | `codexyang/ai-agent-docs`（本 repo） | `main` | `SKY-AI-OS/09_AGENT_HANDOFF.md` | ✅ 在遠端 |
 | **AI STUDY LAB 線上教育平台** | `codexyang/ai-study-lab`（private） | `main` | `COURSE-CATALOG.md`（教材總覽） | ✅ 2026-09-10 建立 |
-| **FB 每日自動貼文（AI STUDY LAB／Pegasustour／pegasus2R）** | `codexyang/ai-study-lab`（private） | `main` | `FB-POSTER-OPERATIONS.md`（操作手冊，先讀）＋ `HANDOFF-FB-AUTOMATION.md` ＋ `CORE_RULES.md`（第 0 條：先取得固定版） | 🟢 2026-09-29 歷史債務 21/21＋回溯日期完成；baseline tag `fb-baseline-2026-09-29`；待 09-30 首次全自動驗收後定 `fb-poster-v1.0.0` |
+| **FB 每日自動貼文（AI STUDY LAB／Pegasustour／pegasus2R／@shun＋AI STUDY LAB 衍生文，每日 10 篇）** | `codexyang/ai-study-lab`（private） | `main`（文件）＋`release/2026-09-26-fb-routes`（程式） | **`FB-POSTER-HANDOFF-PACKAGE.md` v2（唯一入口，照 §5 狀況處置表做，不用問）** | 🟢 2026-09-30 10/10；每日 10:00 全自動（2026-10-01 更新） |
 | **每日備份自動化（Guardian）** | 未進 repo | — | 本機 `C:\Users\USER\sky-backup\HANDOFF-GUARDIAN.md` | ⚠️ **只在本機，其他 Agent 讀不到**，待補 |
 
 ---
